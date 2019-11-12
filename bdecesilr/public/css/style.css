@@ -1,138 +1,358 @@
+
 body {
-    max-width: 110%;
-    overflow-x: hidden;
-    background-color: grey;
-
+  padding: 4rem 1rem 2rem 2rem;
+  width: 100vw;
 }
 
-html {
-    max-width: 110%;
-    overflow-x: hidden;
-    font-family: "Lucida Sans", sans-serif;
+p {
+  text-align: justify;
 }
 
-header {
-    background-color: #333;
-    margin: 0;
-    color: white;
-    position: fixed;
-    top: 0%;
-    width: 110%;
-    display: block;
-    z-index: 1;
+.bg-custom {
+  background-color: #000 !important;
 }
 
-
-#entete {
-	background-color: #F0F8FF;
-	padding: 0px;
-	margin: 0px auto 0px auto;
-	border-style: solid;
-	border-color: #000000;
-	border-width: 3px 0px 3px 0px;
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-#logo {
-	padding: 0px;
-	margin: 10px 400px 10px 400px;
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
 }
 
-
-#menu {
-	background-color: #C0C0C0;
-	border-style: solid;
-	border-width: 0px 0px 3px 0px;
-	border-color: #000000;
-	padding: 0px;
-	margin: 0px;
+.container-fluid li {
+    font-size: 1.125rem;
+    padding: 0 1em 0 0;
 }
 
-#menu ul {
-	padding: 5px 50px 5px 40px;
-	margin: 0px;
+.sidebar p {
+  text-align: center;
 }
 
-#menu ul li {
-	display: inline-block;
+.modal-footer p {
+  text-align: center;
 }
 
-#menu ul li a {
-	color: #000000;
-	font-style: bold;
-	text-decoration: none;
-	padding: 5px 100px 6px 100px;
-	margin: 0px;
+/* The sidebar menu */
+.sidebar {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 3rem;
+    left: 0;
+    background-color: #000;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
 }
 
-#menu ul li a:hover {
-	background-color: #0066ff;
-	color: #FFFFFF;
-}
-
-ul {
-    position: sticky;
-    width: 100%;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-    border-right: 1px solid white;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+/* The sidebar links */
+.sidebar a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
+
+hr.style1 {
+  border-style: solid; 
+  border-color: #000;
 }
 
-/* Début de responsive
 
 
-[class*="col-"] {
-    width: 100%;
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
 }
 
-@media only screen and (min-width: 600px) {
-
-    .col-s-1 {width: 8.33%;}
-    .col-s-2 {width: 16.66%;}
-    .col-s-3 {width: 25%;}
-    .col-s-4 {width: 33.33%;}
-    .col-s-5 {width: 41.66%;}
-    .col-s-6 {width: 50%;}
-    .col-s-7 {width: 58.33%;}
-    .col-s-8 {width: 66.66%;}
-    .col-s-9 {width: 75%;}
-    .col-s-10 {width: 83.33%;}
-    .col-s-11 {width: 91.66%;}
-    .col-s-12 {width: 100%;}
+/* Position and style the close button (top right corner) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    /*right: 25px;*/
+    font-size: 36px;
+    margin-left: 1px;
 }
-@media only screen and (min-width: 768px) {
 
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
+/* The button used to open the sidebar */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+ /*   padding: 10px 15px;   */
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #000;
+}
+
+#main {
+    transition: margin-left .8s;
+    padding: .25rem 0 0 0;
+} 
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) 
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 3rem;}
+    .sidebar a {font-size: 18px;}
+}
+*/
+
+/* CSS of register and login */
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+   /* Hidden by default */ /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.clothes{
+  max-width: 100%; 
+  max-height: 100%;
+  padding-top: 20px;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.coco{
+  padding-top: 400px;
+}
+
+.inin{
+  padding-top: 100px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+
+.close1 {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+.close1:hover, .close1:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .75;
+}
+
+/* The Close Button */ 
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+}
+
+.close:hover, .close:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header, .modal1-header{
+  padding: 2px 16px;
+  background-color: black;
+  color: white;
+}
+
+.modal-body, .modal1-body {
+  padding: 2px 16px;
+  color: black;
+}
+
+.modal-footer, .modal1-footer {
+  padding: 2px 10px;
+  background-color: black;
+  color: white;
+}
+/* Style of the body register */
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+.container signin {
+  padding: 16px;
+  width: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid black;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: black;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+/* Change the color of nav_bar*/
+.nav-link {
+  color : white;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: black;
+  text-align: center;
+}
+/* style of register and login end*/
+
+
+/* style of sponsors parts*/
+
+.sponsors h1{
+  margin: 2%;
+  text-align: center;
+  text-decoration: overline underline;
+  font-weight: bold;
+}
+
+.sponsors ul {
+  text-align :center;
+}
+.sponsors ul a{
+  display: inline-block;
+  width: 30%;
+}
+
+.sponsors img{
+  width: 30%;
+}
+
+
+
+/*Multicoloured Hover Variations */
+.footer ul{
+  color: black;
+  text-align: center;
+}
+
+.footer ul a{
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 5% 10% 0% 10%;
+}
+
+.footer ul a:hover{
+  color: grey;
+}
+
+.social p{
+  color: black;
+  text-align: center;
+}
+
+.social ul{
+  color: black;
+  text-align: center;
+}
+
+.social ul a{
+  text-align: center;
+  display: inline-block;
+  padding: 1%;
+}
+
+.fa{
+  color: black;
+  }
+
+/* RESPONSIVE - make navbar resp
+
+@media screen {
+
+}
+
+@media handheld {
+
+}
+
+@media tv {
+
 }
 
 */
