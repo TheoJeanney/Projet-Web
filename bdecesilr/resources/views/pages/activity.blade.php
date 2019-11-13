@@ -1,20 +1,17 @@
-<html>
- <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laravel 5.8 - Multiple File Upload with Progressbar using Ajax jQuery</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="http://malsup.github.com/jquery.form.js"></script>
- </head>
- <body>
-  <div class="container">    
-     <br />
-     <h3 align="center">Laravel 5.8 - Multiple File Upload with Progressbar using Ajax jQuery</h3>
-     <br />
-     <div class="panel panel-default">
+@extends('layouts.app')
+
+<title>BDE CESI La Rochelle - Activité</title>
+
+@section('mainpage')
+<!--<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+</head>
+    <body>  
                 <div class="panel-heading">
-                    <h3 class="panel-title">Upload Multiple Images in Laravel 5.8</h3>
                 </div>
                 <div class="panel-body">
                     <br />
@@ -23,9 +20,9 @@
                         <div class="row">
                             <div class="col-md-3" align="right"><h4>Select Images</h4></div>
                             <div class="col-md-6">
-                                <input type="file" name="file[]" id="file" accept="image/*" multiple />
+                                <input id = "Picture" type="file" name="Picture" accept="image/*" multiple />
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3"></div>
                                 <input type="submit" name="upload" value="Upload" class="btn btn-success" />
                             </div>
                         </div>
@@ -38,13 +35,13 @@
                     </div>
                     <br />
                     <div id="success" class="row">
-
                     </div>
                     <br />
                 </div>
-            </div>
-  </div>
- </body>
+                <div>
+                <img src="#" id="Image" name="Image" />
+                </div>
+    </body>
 </html>
 
 <script>
@@ -72,3 +69,7 @@ $(document).ready(function(){
     });
 });
 </script>
+
+-->
+
+@endsection

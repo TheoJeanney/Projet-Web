@@ -15,14 +15,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('Users', function (Blueprint $table) {
             //Our information in the database
-            $table->bigIncrements('Id_user')->primary();
+            $table->increments('Id_user');
             $table->string('User_firstname',100);
             $table->string('User_lastname',100);
             $table->string('User_email',255);
             $table->integer('User_phone');
             $table->string('User_password',100);
-            $table->boolean('User_status');
+            $table->boolean('User_status')->default(0);
             $table->integer('Id_campus')->unsigned();
+            $table->timestamps();
 
             $table->foreign('Id_campus')->references('Id_campus')->on('Campus');
 
@@ -37,5 +38,12 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('Users');
+    }
+    /**
+ * Get the images.
+ */
+    public function images()
+    {
+    return $this->hasMany (Image::class);
     }
 }

@@ -13,10 +13,12 @@ class CreateCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('Category', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             //Our information in the database
-            $table->bigIncrements('Id_category')->primary();
-            $table->string('Category_name',100);
+            $table->increments('id_category');
+            $table->string('category_name',100);
+            $table->string('slug',100);
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,13 @@ class CreateCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Category');
+        Schema::dropIfExists('categories');
+    }
+/**
+     * Get the images.
+     */
+    public function images()
+    {
+        return $this->hasMany (Image::class);
     }
 }

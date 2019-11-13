@@ -80,18 +80,19 @@ btnIn2.onclick = function() {
     marginLeft : "250px";
 }*/
 
-/* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+/* Set the width of the sidebar to 250px and the left margin of the page content to 250px 
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
   $("body").css(bodyMove);
 }
 
-/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
 }
+*/
+
 
 //Highlight block when error
 function surligne(champ, erreur)
@@ -212,50 +213,31 @@ function checkMdp() {
 }
 
 //Check all the informations when we finish to put them.
-function validate(user) {
+function surlignEverything() {
 
-  var firstnameOK = verifFirstname(user.firstname);
-  var lastnameOK = verifLastname(user.lastname);
-  var emailOK = verifEmail(user.email);
-  var phoneOK = verifPhone(user.phone);
-  var campusOK=verifCampus(user.inputState);
-  var compareOK=checkMdp();
-
-  var mdp = document.getElementById("psw").value;
-
-  if (firstnameOK && lastnameOK && emailOK && phoneOK && campusOK && compareOK)
-  { 
-    if (mdp.match( /[0-9]/g) && mdp.match( /[A-Z]/g) && mdp.length >= 2 && mdp.length <=25)
-    { 
-      return true;
-    }
-    else
-    {
-      document.getElementById("errorMdp").style.display="";
-      return false;
-    }
+  if (document.getElementById("firstname").value.length <=2 || document.getElementById("firstname").value.length >25)
+  {
+    surligne(document.getElementById("firstname"),true);
   }
   else
   {
-    alert("Veuillez remplir tous les champs de la bonne manière !!")
-    return false;
+    surligne(document.getElementById("firstname"),false);
   }
 }
 
-function myFunction() {
-  var x = document.getElementById("psw");
+function ShowPassA() {
+  var x = document.getElementById("password");
   if (x.type === "password") {
     x.type = "text";
   } else {
     x.type = "password";
   }
 }
-function ShowPass() {
-  var x = document.getElementById("psw1");
+function ShowPassB() {
+  var x = document.getElementById("password-confirm");
   if (x.type === "password") {
     x.type = "text";
   } else {
     x.type = "password";
   }
 }
-

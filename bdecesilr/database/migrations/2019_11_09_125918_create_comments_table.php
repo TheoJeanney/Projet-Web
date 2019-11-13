@@ -17,13 +17,14 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('Comments', function (Blueprint $table) {
             //Our information in the database
-            $table->bigIncrements('Id_comment')->primary(); 
+            $table->increments('Id_comment'); 
             $table->string('Comment');
             $table->integer('Id_user')->unsigned();
             $table->integer('Id_photo')->unsigned();
+            $table->timestamps();
 
             $table->foreign('Id_user')->references('Id_user')->on('Users');
-            $table->foreign('Id_photo')->references('Id')->on('Photos');
+            $table->foreign('Id_photo')->references('Id_photo')->on('Photos');
         });
     }
 

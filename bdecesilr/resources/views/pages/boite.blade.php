@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<title>BDE CESI La Rochelle - Accueil</title>
+<title>BDE CESI La Rochelle - Boîte à idées</title>
 
 @section('mainpage')
 <div>

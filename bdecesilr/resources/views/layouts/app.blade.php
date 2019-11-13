@@ -16,14 +16,16 @@
         @include('inc.header')
     </header>
 
-    <nav>
+    <nav></nav>
         @include('inc.navbar')
     </nav>
 
     <body>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sodales, tortor nec placerat posuere, dui est auctor nisi, dapibus dignissim justo augue in mi. Quisque porta ex sit amet mollis aliquam. In hac habitasse platea dictumst. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec urna nunc, dictum quis venenatis ac, bibendum sed ante. Mauris ullamcorper leo nec tortor ultrices interdum. Nunc ac ullamcorper nunc. Sed vestibulum nulla metus, nec bibendum nibh facilisis eu. Donec eu urna laoreet, suscipit dolor a, laoreet felis. Proin at dui pharetra, pulvinar nunc ac, tincidunt velit.</p>
         @yield('mainpage')
         
+        <main class="py-4">
+            @yield('content')
+        </main>
 
         <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
     </body>

@@ -18,7 +18,7 @@ class CreateSignInTable extends Migration
             $table->integer('Id_event')->unsigned();
             $table->integer('Id_user')->unsigned();
 
-            $table->foreign('Id_event')->references('Id_event')->on('Event');
+            $table->foreign('Id_event')->references('Id_event')->on('Events');
             $table->foreign('Id_user')->references('Id_user')->on('Users');
         });
     }

@@ -5,13 +5,13 @@
         <li class="collapse navbar-collapse" id="navbarsExampleDefault">
 
             <ul class="navbar-nav mr-auto">
-
+<!--
                     <div id="main">
                         <button class="openbtn" onclick="openNav(); moveBodyNavbar()">&#9776;</button>
                     </div>
-
+-->
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php"> Accueil</a>
+                    <a class="nav-link" href="{{route('index')}}"> Accueil</a>
                 </li>
 
             </ul>
@@ -19,16 +19,36 @@
             <ul class="navbar-nav mr-1">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="contact.php"> Contact</a>
+                    <a class="nav-link" href="{{route('contact')}}"> Contact</a>
                 </li>
+                    @guest
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+                            </li>
+                        @if (Route::has('register'))
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item active">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->User_firstname }} <span class="caret"></span>
+                                </a>
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="#connexion" id="BtnCo"> Connexion</a>
-                </li>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="#register" id="BtnIn">Inscription</a>
-                </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
             </ul>
         </li>
     </nav>
@@ -41,7 +61,7 @@
             <span class="close">&times;</span>
         </div>
         <div class="modal-body"></div>
-            <form action="action_page.php">
+            <form action="/connexion" method="post">
         <div class="container">
             <hr>
             <label for="email"><b>Email</b></label>
@@ -56,8 +76,8 @@
     </div>
     <div class="modal-footer">
         <div class="container signin">
-        <p>Vous n'avez pas de compte ? <a class="nav-link" href="#register" id="BtnIn3">S'inscrire</a></p>
-        </div>
+        <p>Vous n'avez pas de compte ? <a class="nav-link" href="" id="BtnIn3">S'inscrire</a></p>
+    </div>
     </div>
         </nav>
         </form>

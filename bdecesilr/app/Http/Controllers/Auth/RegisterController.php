@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 class RegisterController extends Controller
 {
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/index';
 
     /**
      * Create a new controller instance.
@@ -49,9 +50,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255','min:2'],
+            'lastname' => ['required', 'string', 'max:255','min:2'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string','min:10','max:10', 'regex:/(0|\\+33|0033)[1-9][0-9]{8}/'],
+            'password' => ['required', 'string', 'min:2', 'confirmed'],
+            //'regex:/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/'
         ]);
     }
 
@@ -62,11 +66,17 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    { 
         return User::create([
-            'name' => $data['name'],
+            
+            'User_firstname' => $data['firstname'],
+            'User_lastname' => $data['lastname'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'User_phone' => $data['phone'],
+            'User_password' => bcrypt($data['password']),
+            'User_status' => 0,
+            'Id_campus'=>DB::select('SELECT Id_campus FROM Campus WHERE :id = Campus_name ', ['id'=>request('campus')])[0]->Id_campus,
         ]);
     }
 }
+?>

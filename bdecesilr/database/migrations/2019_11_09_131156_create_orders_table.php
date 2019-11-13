@@ -15,12 +15,13 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('Orders', function (Blueprint $table) {
             //Our information in the database
-            $table->bigIncrements('Id_order')->primary();
+            $table->increments('Id_order');
             $table->integer('Order_number');
             $table->decimal('Order_price',9,3);
             $table->integer('Order_amount');
             $table->date('Order_date');
             $table->integer('Id_user')->unsigned();
+            $table->timestamps();
 
             $table->foreign('Id_user')->references('Id_user')->on('Users');
 

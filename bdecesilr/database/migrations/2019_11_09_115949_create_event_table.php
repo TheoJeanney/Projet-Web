@@ -15,7 +15,7 @@ class CreateEventTable extends Migration
     {
         Schema::create('Events', function (Blueprint $table) {
             //Our information in the database
-            $table->bigIncrements('Id_event')->primary();
+            $table->increments('Id_event');
             $table->string('Event_name');
             $table->string('Event_description');
             $table->date('Event_date');
@@ -23,6 +23,7 @@ class CreateEventTable extends Migration
             $table->boolean('Event_signup');
             $table->boolean('Event_recurring');
             $table->integer('Id_user')->unsigned();
+            $table->timestamps();
 
             $table->foreign('Id_user')->references('Id_user')->on('Users');
         });

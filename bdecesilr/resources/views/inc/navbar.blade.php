@@ -9,17 +9,17 @@
 <!-----------------VERTICAL NAVIGATION MENU-----------------/-->
 
 <div id="mySidebar" class="sidebar">
-
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
+<!--
+  <dd href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;-
+-->
   <div class="sidebar-header">
     <img class="col-" src="{{asset('images/Logo_BDE.png')}}" width=100% >
   </div>
 
   <a href="{{route('activity')}}">Activités</a>
-  <a href="{{route('shop')}}">Boutique</a>
+  <a href="{{route('shopw')}}">Boutique</a>
   <a href="{{route('boite')}}"> Boite à idées</a>
-
+  
   <!-- The Modal -->
   <div id="myModalIn" class="modal inin">
 
@@ -51,12 +51,12 @@
             <label id="campusError" style="display:none;" class=text-danger>Veuillez choisir un campus.</label>
             <select id="inputState" class="form-control" name="campus">
               <option selected  onblur="verifCampus(this)">Choisissez votre campus</option>
-              <!--Check the database for all the campus -->
-             <?php
-              /*$post=DB::select('SELECT * FROM Campus'); 
+            <!-- Check the database for all the campus -->
+              <?php
+              $post=DB::select('SELECT * FROM Campus'); 
               foreach($post as $post){
               echo '<option>'.$post->Campus_name.'</option>';
-              }*/
+              }
               ?>
 
             </select>
@@ -74,19 +74,22 @@
             <label for="psw"><b>Mot de passe</b></label>
             <label id="errorMdp" style="display:none;" class=text-danger>Veuillez entrer au moins une majuscule et un chiffre.</label>
             <input type="password" placeholder="Entrez le mot de passe" name="psw" id="psw" onblur="checkMdp()" required>
-            <input type="checkbox" onclick="myFunction()">Show Password
+            <input type="checkbox" onclick="myFunction()"> Montrer le mot de passe
 
             <div><label for="psw1"><b>Répétez le mot de passe</b></label></div>
             <label id="compareError" style="display:none;" class=text-danger>Les mots de passe ne sont pas identiques !</label>
             <input type="password" placeholder="Entrez le mot de passe" name="psw1" id="psw1" onblur="checkMdp()" required>
-            <input type="checkbox" onclick="ShowPass()">Show Password
+            <input type="checkbox" onclick="ShowPass()"> Montrer le mot de passe
             
           <hr class="style1">
             
 
         
           <div class="condition">
-            <p>En créant un compte, vous acceptez nos <a href="{{route('condition')}}" class="badge badge-primary">conditions générales d'utilisation et de confidentialité</a></p>
+            <p>En créant un compte, vous acceptez nos</p>
+          </div>
+          <div>
+          <p><a href="{{route('condition')}}" class="linkC">conditions générales d'utilisation et de confidentialité</a><input type="checkbox" onclick="#" required></p>
           </div>
         <button type="submit" class="registerbtn">S'inscrire</button>
         </div>

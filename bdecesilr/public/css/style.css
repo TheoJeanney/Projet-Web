@@ -1,7 +1,11 @@
 
 body {
-  padding: 4rem 1rem 2rem 2rem;
-  width: 100vw;
+  padding: 5rem 1rem 2rem 15rem;
+  width: auto;
+}
+
+iframe {
+  padding: 0 0 1rem 0;
 }
 
 p {
@@ -43,7 +47,7 @@ p {
 /* The sidebar menu */
 .sidebar {
     height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
+    width: 14rem;
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 3rem;
@@ -58,7 +62,7 @@ p {
 .sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 1.125rem;
     color: white;
     display: block;
     transition: 0.3s;
@@ -70,47 +74,41 @@ hr.style1 {
   border-color: #000;
 }
 
-
-
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
-.sidebar .closebtn {
-    position: absolute;
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: 3rem;
+    position: relative;
     top: 0;
-    /*right: 25px;*/
-    font-size: 36px;
-    margin-left: 1px;
-}
-
-/* The button used to open the sidebar */
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #000;
-    color: white;
- /*   padding: 10px 15px;   */
-    border: none;
-}
-
-.openbtn:hover {
-    background-color: #000;
-}
-
-#main {
-    transition: margin-left .8s;
     padding: .25rem 0 0 0;
-} 
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) 
-@media screen and (max-height: 450px) {
-    .sidebar {padding-top: 3rem;}
-    .sidebar a {font-size: 18px;}
+    overflow-x: hidden;
+  }
+  .navbar {
+    display: none
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  body {padding : 0 1rem 1rem 1rem;}
+  .sidebar-header img {display: none;}
 }
-*/
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
 
 /* CSS of register and login */
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -127,11 +125,67 @@ body {font-family: Arial, Helvetica, sans-serif;}
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+/*-----------------------------------------------------------Shop-----------------------------------------------------------------------------*/ 
+
+.space{
+  padding-bottom: 20px;
+}
+
+.select:hover, .select:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.NameAr{
+  max-width: 30%;
+}
+.NameBr{
+  max-width: 50%;
+}
+
+
+.clothesAr{
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  max-width: 20%;
+}
+
+
+.buttonW{
+  max-width: 40%;
+}
+
+.buttonB{
+  max-width: 20%;
+}
+
+.valider{
+  max-width: 15%;
+}
+.valider_b{
+  max-width: 7%;
+}
+
+.croix_b{
+  max-width: 7%; 
+}
+.croix{
+  max-width: 20%; 
+}
+
+.edit{
+  max-width: 7%;
+}
+
 .clothes{
   max-width: 100%; 
   max-height: 100%;
   padding-top: 20px;
 }
+
+/*-----------------------------------------------------------Shop-----------------------------------------------------------------------------*/
 
 /* Modal Content */
 .modal-content {
@@ -282,11 +336,10 @@ hr {
 
 
 /* style of sponsors parts*/
-
 .sponsors h1{
-  margin: 2%;
+  margin: 5% 0%;
   text-align: center;
-  text-decoration: overline underline;
+  text-decoration: overline underline; 
   font-weight: bold;
 }
 
@@ -299,60 +352,64 @@ hr {
 }
 
 .sponsors img{
-  width: 30%;
+  width: 30%; /*resize sponsors images*/
+}
+
+.modal a{
+  color : #000000; 
+}
+
+/* style of youtube parts*/
+.ytvid {
+  text-align: center;
+}
+
+.ytvid h1{
+  margin: 5% 0%;
+  text-align: center;
+  text-decoration: overline underline; 
+  font-weight: bold;
 }
 
 
+/*--footer--*/
 
-/*Multicoloured Hover Variations */
-.footer ul{
+.info ul{
   color: black;
   text-align: center;
 }
 
-.footer ul a{
+.info ul a{
   color: black;
   text-decoration: none;
   display: inline-block;
-  padding: 5% 10% 0% 10%;
+  padding: auto;
 }
 
-.footer ul a:hover{
+.info ul a:hover{ /*highlight link*/
   color: grey;
+  font-weight: bold;
 }
 
-.social p{
-  color: black;
-  text-align: center;
-}
-
+/*--social network--*/
 .social ul{
   color: black;
   text-align: center;
 }
 
 .social ul a{
-  text-align: center;
-  display: inline-block;
-  padding: 1%;
-}
-
-.fa{
   color: black;
-  }
-
-/* RESPONSIVE - make navbar resp
-
-@media screen {
-
+  text-decoration: none;
+  display: inline-block;
+  padding: auto;
 }
 
-@media handheld {
-
+#social-fb:hover{ /*highlight link*/
+  color: blue;
+  text-align: center;
 }
 
-@media tv {
-
+#social-ig:hover{ /*highlight link*/
+  color: purple;
+  text-align: center;
 }
-
-*/
