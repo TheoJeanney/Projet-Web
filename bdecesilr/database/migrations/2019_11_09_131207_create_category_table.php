@@ -20,6 +20,12 @@ class CreateCategoryTable extends Migration
             $table->string('slug',100);
             $table->timestamps();
         });
+
+        DB::table('Category')->insert([
+            ['Category_name' => 'Maxim','slug' => 'pute']
+        ]);
+
+
     }
 
     /**

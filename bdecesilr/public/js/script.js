@@ -93,138 +93,6 @@ function closeNav() {
 }
 */
 
-
-//Highlight block when error
-function surligne(champ, erreur)
-{
-  if(erreur)
-      champ.style.backgroundColor = "#fba";
-  else
-      champ.style.backgroundColor = "";
-}
-
-
-function verifFirstname(champ) {
-
-  var regex;
-
-  if (champ.value.length  <2 || champ.value.length >25)
-  {
-    surligne(champ,true);
-    document.getElementById("firstnameError").style.display="";
-    return false;
-  }
-  else
-  {
-    document.getElementById("firstnameError").style.display="none";
-    surligne(champ,false);
-    return true;
-  }
-}
-
-//verify the lastname
-function verifLastname(champ) {
-
-  if (champ.value.length  <2 || champ.value.length >25)
-  {
-    document.getElementById("lastnameError").style.display="";
-    surligne(champ,true);
-    return false;
-  }
-  else
-  {
-    document.getElementById("lastnameError").style.display="none";
-    surligne(champ,false);
-    return true;
-  }
-}
-//verify the syntax of the email
-function verifEmail(champ) {
-
-  var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-  if(!regex.test(champ.value))
-  {
-    document.getElementById("emailError").style.display="";
-    surligne(champ, true);
-    return false;
-  }
-  else
-  {
-    document.getElementById("emailError").style.display="none";
-    surligne(champ, false);
-    return true;
-  }
-}
-
-//verify the phone and the quantity of number
-function verifPhone(champ) {
-
-var regex=/(0|\\+33|0033)[1-9][0-9]{8}/;
-
-if(!regex.test(champ.value))
-  {
-    document.getElementById("phoneError").style.display="";
-    surligne(champ, true);
-    return false;
-  }
-  else
-  {
-    document.getElementById("phoneError").style.display="none";
-    surligne(champ, false);
-    return true;
-  }
-}
-
-//verify the choice of campus.
-
-function verifCampus(champ) {
-  if (champ.value=="Choisissez votre campus")
-  {
-    document.getElementById("campusError").style.display="";
-    return false;
-  }
-  else
-  {
-    document.getElementById("campusError").style.display="none";
-    return true;
-  }
-}
-
-
-//Compare both password and return true if they are the same.
-function checkMdp() {
-  var mdp = document.getElementById("psw").value;
-  var mdp2 = document.getElementById("psw1").value;
-
-  var target=document.getElementById("compareError");
-
-  if (mdp!=mdp2) {
-    surligne(document.getElementById("psw"),true);
-    surligne(document.getElementById("psw1"),true);
-    target.style.display = "";
-    return false;
-  } 
-  else {
-    surligne(document.getElementById("psw"),false);
-    surligne(document.getElementById("psw1"),false);
-    target.style.display = "none";
-    return true;
-  }
-}
-
-//Check all the informations when we finish to put them.
-function surlignEverything() {
-
-  if (document.getElementById("firstname").value.length <=2 || document.getElementById("firstname").value.length >25)
-  {
-    surligne(document.getElementById("firstname"),true);
-  }
-  else
-  {
-    surligne(document.getElementById("firstname"),false);
-  }
-}
-
 function ShowPassA() {
   var x = document.getElementById("password");
   if (x.type === "password") {
@@ -233,6 +101,7 @@ function ShowPassA() {
     x.type = "password";
   }
 }
+
 function ShowPassB() {
   var x = document.getElementById("password-confirm");
   if (x.type === "password") {

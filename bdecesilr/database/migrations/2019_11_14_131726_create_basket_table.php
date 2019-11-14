@@ -4,9 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-//Creation of the table comments.
-
-class CreateCommentsTable extends Migration
+class CreateBasketTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,16 +13,18 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('Comments', function (Blueprint $table) {
-            //Our information in the database
-            $table->increments('Id_comment'); 
-            $table->string('Comment');
+        Schema::create('basket', function (Blueprint $table) {
+            $table->increments('Id_basket');
+            $table->string('Basket_productName');
+            $table->integer('Basket_amount');
+            $table->float('Basket_totalPrice');
+
             $table->integer('Id_user')->unsigned();
-            $table->integer('Id_photo')->unsigned();
+            $table->integer('Id_product')->unsigned();
             $table->timestamps();
 
             $table->foreign('Id_user')->references('Id_user')->on('Users');
-            $table->foreign('Id_photo')->references('Id_photo')->on('Photos');
+            $table->foreign('Id_product')->references('Id_product')->on('Products');
         });
     }
 
@@ -35,6 +35,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Comments');
+        Schema::dropIfExists('basket');
     }
 }

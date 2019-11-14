@@ -8,6 +8,10 @@
         <title>{{config('app.name','bdecesilr')}}</title> 
         <link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
         <link  rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+        <link href='style.css' rel='stylesheet' type='text/css'>
+
     </head>
     <body>
 <!--<?php 
@@ -20,41 +24,29 @@ Salut les bg
 </div>
 <p class="text-primary">text-primary</p>-->
 
-<!-- Le contenu -->
-<div id="contenu">
+<textarea id="tweetContent" maxlength="10" placeholder="Votre Tweet Ici..." style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 86px; width:60%"></textarea>
+<p id="counterBlock"></p>
 
-        <div id="wrapper" style="min-height: 50px;">
-            <h1> Requêtes administrateur</h1>
-        </div>
-        <div id="barre_boutons_admin">
-            <a class="button" href="#listproducts">
-                <div class="bouton_admin">
-                    <div style="height:50px;"><img src="images/Logo_BDE.png" alt="Shoe" height="75"></div>
-                    Lister les articles
-                </div>
-            </a>
-            <a class="button" href="#addproduct">
-                <div class="bouton_admin">
-                    <div style="height:50px;"><img src="Images/shoesAdd.png" alt="Shoe" height="75"></div>
-                    Ajouter un article
-                </div>
-            </a>
-            <a class="button" href="#deleteproduct">
-                <div class="bouton_admin">
-                    <div style="height:50px;"><img src="Images/shoesDel.png" alt="Shoe" height="75"></div>
-                    Supprimer un article
-                </div>
-            </a>
-            <a class="button" href="#editproduct">
-                <div class="bouton_admin">
-                    <div style="height:50px;"><img src="Images/shoesChange.png" alt="Shoe" height="75"></div>
-                    Modifier un article
-                </div>
-            </a>
-        </div>
+</body>
 
-    </body>
-<script src="/js/jquery.min.js"></script>
-<script src="/js/popper.min.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<script>
+// On selectionne l'element textarea et l'élement p#counterBlock
+var textarea = document.querySelector('#tweetContent');
+var blockCount = document.getElementById('counterBlock');
+
+function count() {
+    // la fonction count calcule la longueur de la chaîne de caractère contenue dans le textarea
+    var count = 10-textarea.value.length;
+    // et affche cette valeur dans la balise p#counterBlock grâce à innerHTML
+    blockCount.innerHTML= count;
+}
+
+// on pose un écouteur d'évènement keyup sur le textarea.
+// On déclenche la fonction count quand l'évènement se produit et au chargement de la page
+textarea.addEventListener('keyup', count);
+count();
+</script>
+
 </html>
+
+

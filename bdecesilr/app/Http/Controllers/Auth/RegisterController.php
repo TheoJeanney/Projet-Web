@@ -55,8 +55,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string','min:10','max:10', 'regex:/(0|\\+33|0033)[1-9][0-9]{8}/'],
             'password' => ['required', 'string', 'min:2', 'confirmed'],
-            //'regex:/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/'
-        ]);
+        ]);//'regex:/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/'   //PAS OUBLIER DE LE REMETTRE
     }
 
     /**
@@ -73,8 +72,8 @@ class RegisterController extends Controller
             'User_lastname' => $data['lastname'],
             'email' => $data['email'],
             'User_phone' => $data['phone'],
-            'User_password' => bcrypt($data['password']),
-            'User_status' => 0,
+            'password' => bcrypt($data['password']),
+            'Id_status' => 1,
             'Id_campus'=>DB::select('SELECT Id_campus FROM Campus WHERE :id = Campus_name ', ['id'=>request('campus')])[0]->Id_campus,
         ]);
     }

@@ -19,7 +19,7 @@ class PagesController extends Controller
         return view('pages.shopw');
     }
     public function activity(){
-        return view('pages.activity');
+        return view('pages.index');
     }
     public function boite(){
         return view('pages.boite');
@@ -30,4 +30,14 @@ class PagesController extends Controller
     public function contact(){
         return view('pages.contact');
     }
+    public function admin(){
+        return view('pages.admin');
+    }
+    public function account(){
+        return view('pages.account');
+    }
+    public function register() {
+        return view('pages.register');
+    }
+
 }

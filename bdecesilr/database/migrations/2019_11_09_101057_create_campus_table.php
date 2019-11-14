@@ -17,7 +17,6 @@ class CreateCampusTable extends Migration
             //Our information in the database
             $table->increments('Id_campus');
             $table->string('Campus_name',150);
-            $table->timestamps();
         });
 
         DB::table('Campus')->insert([

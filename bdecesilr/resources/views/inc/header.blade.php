@@ -21,37 +21,68 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route('contact')}}"> Contact</a>
                 </li>
+
+                    <!-- if not connected -->
+
                     @guest
-                            <li class="nav-item active">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
-                            </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Connexion') }}</a>
+                        </li>
                         @if (Route::has('register'))
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
-                                </li>
-                            @endif
-                        @else
                             <li class="nav-item active">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->User_firstname }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Inscription') }}</a>
                             </li>
-                        @endguest
+                        @endif
+
+                        <!-- If connected -->
+
+                        @else
+
+                        <li class="nav-item active">
+                            <li class="nav-item active">
+                                <div class="dropdown">
+                                    <a style="color: white;" class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" data-target="#navbarDropdown">
+                                        {{ Auth::user()->User_firstname }}
+                                    </a>
+                                    
+                                    <div id="navbarDropdown" class="dropdown-menu dropdown-menu-right" area-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <a class="dropdown-item" href="{{ route('account') }}">
+                                            Mon Compte
+                                        </a>
+                                        
+                                        <div class="dropdown-divider"></div>
+
+                                        @if(auth()->user()->Id_status==4)
+                                            <a class="dropdown-item" href="{{ route('admin') }}">
+                                                Administration
+                                            </a>
+                                        @endif
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </div>
+                                
+                            </li>
+                        </li>
+
+                        @endif
+
+                        @if(Auth::check())
+
+                            @if(auth()->user()->Id_status==2)
+                                <!--Mettre ici ce que vous voulez pour cet utilisateur (role 2) -->
+                            @endif
+                        @endif
             </ul>
         </li>
     </nav>
+</nav>
     <!-- Connexion -->
     <!-- The Modal -->
 <div id="myModalCo" class="modal coco">

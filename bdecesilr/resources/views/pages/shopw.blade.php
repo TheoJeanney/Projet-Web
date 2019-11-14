@@ -13,25 +13,25 @@
   
   </div>
 
-  <div class="NameBr">
+  <button class="NameBr">
 
     <label for="ImageUp"><b>Image de l'article</b></label>
 
-    <div class="panel panel-primary">
+    <button class="panel panel-primary">
 
       <div class="panel-heading"></div>
 
-        <div class="panel-body">
+        <button class="panel-body">
 
         @if ($message = Session::get('success'))
 
-        <div class="alert alert-success alert-block">
+        <button class="alert alert-success alert-block">
 
           <button type="button" class="close" data-dismiss="alert">×</button>
 
           <strong>{{ $message }}</strong>
 
-        </div>
+        </button>
 
         <img src="images/{{ Session::get('image') }}">
 
@@ -81,11 +81,11 @@
 
       </div>
 
-    </div>
+    </button>
 
-  </div>
+  </button>
 
-</div>
+</button>
 
 
 <div class="NameAr">

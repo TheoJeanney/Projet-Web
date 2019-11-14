@@ -1,7 +1,22 @@
 
+.editUtab {
+  width:100%;
+}
+
+.BtnEdit {
+  display: inline-block;
+}
+
+.BtnEdit1 {
+  float: right;
+}
+
+th {
+  text-align: center;
+}
+
 body {
   padding: 5rem 1rem 2rem 15rem;
-  width: auto;
 }
 
 iframe {
@@ -50,7 +65,7 @@ p {
     width: 14rem;
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
-    top: 3rem;
+    top: .25rem;
     left: 0;
     background-color: #000;
     overflow-x: hidden; /* Disable horizontal scroll */
@@ -60,9 +75,9 @@ p {
 
 /* The sidebar links */
 .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 1.5rem 2rem 2rem 1rem;
     text-decoration: none;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: white;
     display: block;
     transition: 0.3s;
@@ -77,37 +92,6 @@ hr.style1 {
 /* When you mouse over the navigation links, change their color */
 .sidebar a:hover {
     color: #f1f1f1;
-}
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: 3rem;
-    position: relative;
-    top: 0;
-    padding: .25rem 0 0 0;
-    overflow-x: hidden;
-  }
-  .navbar {
-    display: none
-  }
-  .sidebar a {
-    float: left;
-  }
-  div.content {
-    margin-left: 0;
-    margin-top: 0;
-  }
-  body {padding : 0 1rem 1rem 1rem;}
-  .sidebar-header img {display: none;}
-}
-
-/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
 }
 
 /* CSS of register and login */
@@ -334,6 +318,7 @@ hr {
 }
 /* style of register and login end*/
 
+/*------------------SPONSORS PART---------------*/
 
 /* style of sponsors parts*/
 .sponsors h1{
@@ -359,20 +344,46 @@ hr {
   color : #000000; 
 }
 
+/*------------------YOUTUBE PART----------------*/
+
 /* style of youtube parts*/
 .ytvid {
   text-align: center;
 }
 
 .ytvid h1{
-  margin: 5% 0%;
+  margin: 2% 0%;
+  text-align: center;
+  text-decoration: overline underline; 
+  font-weight: bold;
+}
+
+/*-----------------ACTIVITY-----------------------*/
+
+/* style of activity parts*/
+.activity {
+  text-align: center;
+}
+
+.activity h1{
+  margin: 0.5em auto 2em;
   text-align: center;
   text-decoration: overline underline; 
   font-weight: bold;
 }
 
 
-/*--footer--*/
+.btn {  
+  padding: .75rem; 
+  line-height: 1;
+}
+
+.btn-light.dropdown-toggle {
+  background-color: black;
+  color: white;
+}
+
+/*---------------------FOOTER--------------------*/
 
 .info ul{
   color: black;
@@ -413,3 +424,60 @@ hr {
   color: purple;
   text-align: center;
 }
+
+/* On screens less than 700px */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: 3rem;
+    position: relative;
+    top: 0;
+    padding: .25rem 0 0 0;
+    overflow-x: hidden;
+  }
+  .navbar {
+    display: none
+  }
+  .sidebar a {
+    float: left;
+    font-size: 15px;
+  }
+  div.content {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  /*body {padding : 0 1rem 1rem 1rem;}*/
+  .sidebar-header img {display: none;}
+  iframe {display: none;}
+  h1 {
+    font-size: 20px;
+  }
+}
+
+/* On screens that are less than 400px */
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+/* Character counter */
+textarea {
+  border: 2px solid #D9E3F9;
+  border-radius: 4px;
+  padding: 8px 14px;
+}
+
+.red {
+  color : #ff0000 !important;
+}
+
+p#counterBlock {
+  color: #456; 
+  font-size: 100%;
+  font-weight: bold;
+  margin-top:7px
+}
+
+

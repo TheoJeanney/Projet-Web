@@ -10,23 +10,21 @@
 
 <div id="mySidebar" class="sidebar">
 <!--
-  <dd href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;-
--->
+  <dd href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;-->
   <div class="sidebar-header">
     <img class="col-" src="{{asset('images/Logo_BDE.png')}}" width=100% >
   </div>
 
-  <a href="{{route('activity')}}">Activités</a>
-  <a href="{{route('shopw')}}">Boutique</a>
+  <a href="{{asset('Posts')}}">Activités</a>
+  <a href="{{route('shop')}}">Boutique</a>
   <a href="{{route('boite')}}"> Boite à idées</a>
-  
   <!-- The Modal -->
   <div id="myModalIn" class="modal inin">
 
     <!-- Modal content -->
     <div class="modal-content">
 
-      <div class="modal-header">
+      <div class="modal-header"></div>
         <span class="close1">&times;</span>
       </div>
 
@@ -94,12 +92,6 @@
         <button type="submit" class="registerbtn">S'inscrire</button>
         </div>
       </form>    
-    </div>
-
-    <div class="modal-footer">
-      <div class="container signin">
-        <p>Vous avez déjà un compte? <a class="nav-link" href="#connexion" id="BtnCo2">Connexion</a></p>
-      </div>
     </div>
   </div>
 </div>

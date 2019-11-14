@@ -2,12 +2,44 @@
 <title>BDE CESI La Rochelle - Boîte à idées</title>
 
 @section('mainpage')
+
 <div>
-<label for="firstname"><b>Nom de l'article</b></label>
-<input type="text" placeholder="Entrer nom" name="Name">
+    <label for="article"><b>Titre de votre idée</b></label>
+        <input id="subject" type="text" class="form-control @error('name') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="name" placeholder="Votre idée">
+        @error('subject')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
 </div>
+
 <div>
-<label for="firstname"><b>Image de l'article</b></label>
+    <label for="lastname"><b>Nom</b></label>
+        <input id="subject" type="text" class="form-control @error('name') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="name" placeholder="Nom">
+        @error('subject')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+</div>
+
+<div>
+    <label for="firstname"><b>Prénom</b></label>
+        <input id="subject" type="text" class="form-control @error('name') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="name" placeholder="Nom">
+        @error('subject')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+</div>
+
+<div>
+    <label for="textArea"><b>Votre message</b></label>
+    <textarea class="form-control" id="textArea" rows="3"></textarea><br />
+</div>
+
+<div>
+<label for="image"><b>Image de l'article</b></label>
    
 
     <div class="panel panel-primary">

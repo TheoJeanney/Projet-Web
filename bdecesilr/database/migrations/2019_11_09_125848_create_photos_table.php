@@ -21,6 +21,7 @@ class CreatePhotosTable extends Migration
             $table->string('Photo_name');
             $table->string('Photo_url');
             $table->boolean('Photo_status');
+            $table->integer('Photo_liked')->default(0);
             $table->integer('Id_user')->unsigned();
             $table->integer('Id_event')->unsigned();
             $table->timestamps();
