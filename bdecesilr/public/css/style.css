@@ -59,7 +59,7 @@ p {
   text-align: center;
 }
 
-/* The sidebar menu */
+/* ----------------------------------- The sidebar menu -------------------------------------------*/
 .sidebar {
     height: 100%; /* 100% Full-height */
     width: 14rem;
@@ -317,7 +317,7 @@ hr {
 }
 /* style of register and login end*/
 
-/*------------------SPONSORS PART---------------*/
+/*---------------------------------------------SPONSORS PART---------------------------------------------------*/
 
 /* style of sponsors parts*/
 .sponsors h1{
@@ -343,7 +343,7 @@ hr {
   color : #000000; 
 }
 
-/*------------------YOUTUBE PART----------------*/
+/*-----------------------------------------------------YOUTUBE PART--------------------------------------------------*/
 
 /* style of youtube parts*/
 .ytvid {
@@ -357,7 +357,7 @@ hr {
   font-weight: bold;
 }
 
-/*-----------------ACTIVITY-----------------------*/
+/*-------------------------------------------------ACTIVITY-----------------------------------------------------------*/
 
 /* style of activity parts*/
 .activity {
@@ -382,7 +382,7 @@ hr {
   color: white;
 }
 
-/*-----------------SHOP-----------------------*/
+/*------------------------------------------------SHOP-----------------------------------------------*/
 
 /* style of activity parts*/
 .boutique {
@@ -407,14 +407,29 @@ hr {
   color: white;
 }
 
+
+
 #article {
-  display: inline-block;
+  display:inline-block;
   border: thick double orange;
-  margin: 5px ;
-  padding: 1%;
+  margin: 2%;
+  padding: auto;
 }
 
-/*---------------------FOOTER--------------------*/
+#article img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+#article a {
+  margin: 1rem auto 1rem ;
+}
+
+.search{
+  margin: 1rem auto 1rem 2rem;
+}
+
+/*-------------------------------------------------FOOTER------------------------------------------*/
 
 .info ul{
   color: black;

@@ -18,6 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title',150);
             $table->mediumText('body');
             $table->string('web_image');
+            $table->date('');
             $table->timestamps();
         });
         DB::table('posts')->insert([

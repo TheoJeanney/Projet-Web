@@ -1,6 +1,7 @@
 @extends('layouts.app')
 <title>BDE CESI La Rochelle - Contact</title>
 
+
 @section('mainpage')
 
 <div class="container">
@@ -19,8 +20,7 @@
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Prénom') }}</label>
 
                             <span class="col-md-6">
-                                <input id="firstname" type="text" class="form-control @error('name') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus placeholder="Prénom">
-
+                                <input id="firstname" type="text" class="form-control @error('name') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname">
                                 @error('firstname')
                                     <span class="invalid-feedback" role="alert"></span>
                                         <strong>{{ $message }}</strong>
@@ -33,12 +33,11 @@
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
 
                             <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('name') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" placeholder="Nom">
-
+                                <input id="lastname" type="text" class="form-control @error('name') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname">
                                 @error('lastname')
-                                    <span class="invalid-feedback" role="alert"></span>
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </span>ss
                                 @enderror
                             </div>
                         </div>
@@ -47,8 +46,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
-
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -59,7 +57,7 @@
                         <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Votre sujet') }}</label>
                             <div class="col-md-6">
-                                <input id="subject" type="text" class="form-control @error('name') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="subject" placeholder="Sujet">
+                                <input id="subject" type="text" class="form-control @error('name') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="subject">
                                 @error('subject')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -68,24 +66,22 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="textArea">Votre message</label>
+                            <label for="textArea" ></label>Votre message</label>
+                            <button style="float: right;" class="btn btn-danger btn-xs" onclick="document.getElementById('textArea').value = ''"><i class="fa fa-trash-alt"></i></button>
                             <textarea class="form-control" id="textArea" rows="3"></textarea>
                         </div>
-                        
+              
                         <div style="text-align: center;">
                             <span>
                                 <button class="submit-btn site_button cta" type="submit">Envoyer l'email</button>
                             </span>
-                            <span>
-                                <button class="reset-btn site_button" type="reset">Réinitialiser le formulaire</button>
-                            </span>
                         </div>
 
-                        </span>
-
                     </span>
+
                 </span>
             </span>
+        </span>
         
     
 
@@ -105,7 +101,6 @@
             </span>
         </span>
     </span>
-</div>
 </div>
 </div>
 @endsection

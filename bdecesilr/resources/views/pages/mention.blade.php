@@ -8,17 +8,25 @@
 </head>
 
 <style>
-h1 {
-    text-align: center;
-}
+    h1 {
+        text-align: center;
+    }
+    
+    p {
+        text-align: justify;
+    }
 
-p {
-    text-align: justify;
-}
+    strong {
+        color: red;
+    }
 
-body {
-    padding: 1rem 1rem 1rem 1rem;
-}
+    .important{
+        color: black;
+    }
+    
+    body {
+        padding: 2rem 2rem 2rem 2rem;
+    }
 </style>
 
 <body>
@@ -29,23 +37,23 @@ body {
     
     <p><strong>1. Informations légales :</strong></p>
     
-    <p>Statut du propriétaire : <strong>particulier</strong><br />
-    Le Propriétaire est : <strong>BDE Président</strong><br />
-    Adresse postale du propriétaire : <strong> 8 Rue Isabelle Autissier 17140 Lagord</strong><br />
+    <p>Statut du propriétaire : <strong class="important">particulier</strong><br />
+    Le Propriétaire est : <strong class="important">BDE Président</strong><br />
+    Adresse postale du propriétaire : <strong class="important"> 8 Rue Isabelle Autissier 17140 Lagord</strong><br />
      <br />
-    Le Créateur du site est : <strong>10.117.128.113/ProjetWebF/bdecesilr/public/</strong><br />
-    Le Responsable de la  publication est : <strong>BDE CESI</strong><br />
-    Contacter le responsable de la publication : <strong>admin@viacesi.fr</strong><br />
-    Le responsable de la publication est une<strong> personne morale</strong><br />
+    Le Créateur du site est : <strong class="important">10.117.128.113/ProjetWebF/bdecesilr/public/</strong><br />
+    Le Responsable de la  publication est : <strong class="important"></strong>BDE CESI</strong><br />
+    Contacter le responsable de la publication : <strong class="important">admin@viacesi.fr</strong><br />
+    Le responsable de la publication est une<strong class="important"> personne morale</strong><br />
     <br />
-    Le Webmaster est  : <strong>Admin</strong><br />
-    Contacter le Webmaster :  <strong><a href="mailto:admin@viacesi.fr?subject=Contact a partir des mentions lÃ©gales via le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition">admin@viacesi.fr</a></strong><br />
-    L’hebergeur du site est : <strong>Admin  8 Rue Isabelle Autissier 17140 Lagord</strong><br />
+    Le Webmaster est  : <strong class="important">Admin</strong><br />
+    Contacter le Webmaster :  <strong class="important" ><a href="mailto:admin@viacesi.fr?subject=Contact a partir des mentions lÃ©gales via le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition">admin@viacesi.fr</a></strong><br />
+    L’hebergeur du site est : <strong class="important">Admin  8 Rue Isabelle Autissier 17140 Lagord</strong><br />
     
     <p><strong>2. Présentation et principe :</strong></p>
     
-    <p>Est désigné ci-après : <strong>Utilisateur</strong>, tout internaute se connectant et utilisant le site susnommé : <a href="http://10.117.128.113/ProjetWebF/bdecesilr/public/condition" target="_blank">10.117.128.113/ProjetWebF/bdecesilr/public/condition</a>.<br />
-    Le site <strong>10.117.128.113/ProjetWebF/bdecesilr/public/condition</strong><strong> </strong>regroupe un ensemble de services, dans l'état,  mis à la disposition des utilisateurs. Il est ici précisé que ces derniers doivent rester courtois et faire preuve de bonne foi tant envers les autres utilisateurs qu'envers le webmaster du site 10.117.128.113/ProjetWebF/bdecesilr/public/condition. Le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition est mis à jour régulièrement par Admin.<br />
+    <p>Est désigné ci-après : <strong class="important">Utilisateur</strong>, tout internaute se connectant et utilisant le site susnommé : <a href="http://10.117.128.113/ProjetWebF/bdecesilr/public/condition" target="_blank">10.117.128.113/ProjetWebF/bdecesilr/public/condition</a>.<br />
+    Le site <strong class="important">10.117.128.113/ProjetWebF/bdecesilr/public/condition</strong> regroupe un ensemble de services, dans l'état,  mis à la disposition des utilisateurs. Il est ici précisé que ces derniers doivent rester courtois et faire preuve de bonne foi tant envers les autres utilisateurs qu'envers le webmaster du site 10.117.128.113/ProjetWebF/bdecesilr/public/condition. Le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition est mis à jour régulièrement par Admin.<br />
     BDE Président s’efforce de fournir sur le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition des informations les plus précises possibles (sous réserve de modifications apportées depuis leur mise en ligne), mais ne saurait garantir l'exactitude, la complétude et l'actualité des informations diffusées sur son site, qu’elles soient de son fait ou du fait des tiers partenaires qui lui fournissent ces informations. En conséquence, l'utilisateur reconnaît utiliser ces informations données (à titre indicatif, non exhaustives et susceptibles d'évoluer) sous sa responsabilité exclusive.</p>
   
     <p><strong>3. Accessibilité :</strong><br />
@@ -71,7 +79,7 @@ body {
     En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978, la loi n° 2004-801 du 6 août 2004, l'article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995.</p>
     
     <p>Sur le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition, BDE Président ne collecte des informations personnelles ( suivant l'article 4 loi n°78-17 du 06 janvier 1978) relatives à l'utilisateur que pour le besoin de certains services proposés par le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition. L'utilisateur fournit ces informations en toute connaissance de cause, notamment lorsqu'il procède par lui-même à leur saisie. Il est alors précisé à l'utilisateur du site 10.117.128.113/ProjetWebF/bdecesilr/public/condition l’obligation ou non de fournir ces informations.<br />
-    Conformément aux dispositions des articles 38 et suivants de la loi 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, tout utilisateur dispose d’un droit d’accès, de rectification, de suppression et d’opposition aux données personnelles le concernant. Pour l’exercer, adressez votre demande à 10.117.128.113/ProjetWebF/bdecesilr/public/condition par email : <strong><a href="mailto:admin@viacesi.fr?subject=Contact ï¿½ partir des mentions lï¿½gales via le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition">admin@viacesi.fr</a></strong> ou par écrit dûment signée, accompagnée d’une copie du titre d’identité avec signature du titulaire de la pièce, en précisant l’adresse à laquelle la réponse doit être envoyée.</p>
+    Conformément aux dispositions des articles 38 et suivants de la loi 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, tout utilisateur dispose d’un droit d’accès, de rectification, de suppression et d’opposition aux données personnelles le concernant. Pour l’exercer, adressez votre demande à 10.117.128.113/ProjetWebF/bdecesilr/public/condition par email : <strong class="important"><a href="mailto:admin@viacesi.fr?subject=Contact ï¿½ partir des mentions lï¿½gales via le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition">admin@viacesi.fr</a></strong> ou par écrit dûment signée, accompagnée d’une copie du titre d’identité avec signature du titulaire de la pièce, en précisant l’adresse à laquelle la réponse doit être envoyée.</p>
     
     <p>Aucune information personnelle de l'utilisateur du site 10.117.128.113/ProjetWebF/bdecesilr/public/condition n'est publiée à l'insu de l'utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l'hypothèse du rachat du site 10.117.128.113/ProjetWebF/bdecesilr/public/condition et de ses droits autorise BDE Président à transmettre les dites informations à l'éventuel acquéreur qui serait à son tour tenu à la même obligation de conservation et de modification des données vis à vis de l'utilisateur du site 10.117.128.113/ProjetWebF/bdecesilr/public/condition.<br />
     Le site 10.117.128.113/ProjetWebF/bdecesilr/public/condition est en conformité avec le RGPD voir notre politique RGPD  Conditions générales d'utilisation.</p>

@@ -4,7 +4,7 @@ namespace App;
 
 class Cart
 {
-    public $items;
+    public $items = null;
     public $totalQty = 0;
     public $totalPrice = 0;
 
@@ -14,8 +14,7 @@ class Cart
             $this->items = $oldCart->items;
             $this->totalQty = $oldCart->totalQty;
             $this->totalPrice = $oldCart->totalPrice;
-        }   
-        
+        }
     }
 
     public function add($item, $id){
@@ -30,9 +29,5 @@ class Cart
         $this->items[$id] = $storedItem;
         $this->totalQty++;
         $this->totalPrice += $item->price;
-    }
-    
-    protected $table = 'basket';
-
-    public $primaryKey = 'Id_basket';
+    } 
 }

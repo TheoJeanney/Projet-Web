@@ -40,7 +40,7 @@
 
         <form method="POST" action='{{ url("/comment/{$post->id_posts}") }}'>
                 {{csrf_field()}}
-                        <div class="form-group">
+                        <div class="form-group"></div>
                                 {{Form::file('comment_image')}}
                         </div>
                         <div class="form-group"></div>

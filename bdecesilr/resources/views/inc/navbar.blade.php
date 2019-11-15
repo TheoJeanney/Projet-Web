@@ -17,7 +17,12 @@
 
   <a href="{{asset('Posts')}}">Activités</a>
   <a href="{{route('shop')}}">Boutique</a>
+  @if(Auth::check())
+    @if(auth()->user()->Id_status>=1)
   <a href="{{route('boite')}}"> Boite à idées</a>
+  @endif
+    @endif
+
   <!-- The Modal -->
   <div id="myModalIn" class="modal inin">
 

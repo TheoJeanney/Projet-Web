@@ -20,10 +20,23 @@ Route::get('/account', 'PagesController@account')->name('account');
 /*Shop*/
 Route::resource('shop', 'ShopController');
 Route::get('/shop', 'ShopController@index')->name('shop');
+
 Route::get('/add-to-cart/{id}',[
     'uses' => 'ShopController@getAddToCart',
     'as' => 'shop.addToCart'
 ]);
+
+Route::get('/shopping-cart',[
+    'uses' => 'ShopController@getCart',
+    'as' => 'shop.shoppingCart'
+]);
+
+Route::get('/shopBasket', [
+    'uses' => 'ShopController@index',
+    'as' => 'shop.main'
+]);
+
+
 Route::get('{id_posts}/photos', 'ActiController@photos')->name('photos');
 
 /*Like*/

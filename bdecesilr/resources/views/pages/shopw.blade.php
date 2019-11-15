@@ -8,7 +8,7 @@
   
   <div class="NameAr">
   
-    <label for="NameArticle"><b>Nom de l'article</b></label>
+    <label for="NameArticle"><b>Les bougnoules dehors</b></label>
     <input type="text" placeholder="Entrer nom" name="Name">
   
   </div>

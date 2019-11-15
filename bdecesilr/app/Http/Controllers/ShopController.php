@@ -108,7 +108,6 @@ class ShopController extends Controller
             'Product_image'=> 'image|nullable|max:1999'
 
         ]);
-        //        return "nique";
         if($request->hasFile('Product_image')){
             //Filename with extension
             $filenameYExt = $request->file('Product_image')->getClientOriginalName();
@@ -149,13 +148,25 @@ class ShopController extends Controller
         return redirect('/shop')->with('success', 'produit supprimé');
     }
 
-    public function getAddToCart(Request $request, $Id_product){
-        $product = Shop::find($Id_product);
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->add($product, $product->Id_product);
-
+    public function getAddToCart(Request $request, $id){
+        $product = Shop::find($id);
+        $cart = Session::has('cart') ? Session::get('cart') : null;
+        if(!$cart)
+        {
+            $cart = new Cart($cart);
+        }
+        $cart->add($product, $product->id_product);
+        return $cart->items;
         $request->session()->put('cart', $cart);
         return redirect()->route('shop.main')->with('product',$product);
+    }
+
+    public function getCart(){
+        if (Session::has('cart')) {
+            return view('shop.shopping-cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('shop.shopping-cart', ['products'=> $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 }

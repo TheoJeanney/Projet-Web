@@ -1,3 +1,6 @@
+@if(Auth::check())
+    @if(auth()->user()->Id_status>=1)
+
 @extends('layouts.app')
 <title>BDE CESI La Rochelle - Boîte à idées</title>
 
@@ -106,4 +109,23 @@
     </div>
 
 </div>
+
+@endsection 
+
+        @else
+@section('adminpage')
+<h2 style="color: red; text-align: center;">Vous n'avez pas le droit d'être ici.</h2>
+<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
 @endsection
+        @endif
+
+@else
+
+@section('adminpage')
+<h2 style="color: red; text-align: center;">Vous n'avez pas le droit d'être ici.</h2>
+<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
+@endsection
+@endif
+
+
+
