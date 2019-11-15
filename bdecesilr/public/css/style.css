@@ -127,7 +127,6 @@ body {font-family: Arial, Helvetica, sans-serif;}
   max-width: 50%;
 }
 
-
 .clothesAr{
   padding-right: 10px;
   padding-left: 10px;
@@ -383,6 +382,38 @@ hr {
   color: white;
 }
 
+/*-----------------SHOP-----------------------*/
+
+/* style of activity parts*/
+.boutique {
+  text-align: center;
+}
+
+.boutique h1{
+  margin: 0.5em auto 2em;
+  text-align: center;
+  text-decoration: overline underline; 
+  font-weight: bold;
+}
+
+
+.btn {  
+  padding: .75rem; 
+  line-height: 1;
+}
+
+.btn-light.dropdown-toggle {
+  background-color: black;
+  color: white;
+}
+
+#article {
+  display: inline-block;
+  border: thick double orange;
+  margin: 5px ;
+  padding: 1%;
+}
+
 /*---------------------FOOTER--------------------*/
 
 .info ul{
@@ -462,15 +493,12 @@ hr {
   }
 }
 
+
 /* Character counter */
 textarea {
   border: 2px solid #D9E3F9;
   border-radius: 4px;
   padding: 8px 14px;
-}
-
-.red {
-  color : #ff0000 !important;
 }
 
 p#counterBlock {
@@ -479,5 +507,3 @@ p#counterBlock {
   font-weight: bold;
   margin-top:7px
 }
-
-

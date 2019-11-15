@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password',100);
             $table->integer('Id_status')->unsigned();
             $table->integer('Id_campus')->unsigned();
+            $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('Id_status')->references('Id_status')->on('Status');

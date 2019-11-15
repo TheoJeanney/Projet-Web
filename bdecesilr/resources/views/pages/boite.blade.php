@@ -38,17 +38,14 @@
     <textarea class="form-control" id="textArea" rows="3"></textarea><br />
 </div>
 
-<div>
-<label for="image"><b>Image de l'article</b></label>
-   
+<div>   
 
     <div class="panel panel-primary">
 
-      <div class="panel-heading"><h2></div>
+        <div class="panel-heading"></div>
 
-      <div class="panel-body">
+        <div class="panel-body">
 
-   
 
         @if ($message = Session::get('success'))
 
@@ -88,37 +85,23 @@
 
   
 
-        <form action="{{ route('image.upload.post') }}" method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
 
             @csrf
 
-            <div class="row">
-
-  
-
-                <div class="col-md-6">
-
-                    <input type="file" name="image" class="form-control">
-
-                </div>
-
-   
-
-                <div class="col-md-6">
+                <div></div>
 
                     <button type="submit" class="btn btn-success">Envoyer</button>
 
                 </div>
 
-   
 
             </div>
 
         </form>
 
-  
 
-      </div>
+        </div>
 
     </div>
 

@@ -23,11 +23,11 @@ class CreatePhotosTable extends Migration
             $table->boolean('Photo_status');
             $table->integer('Photo_liked')->default(0);
             $table->integer('Id_user')->unsigned();
-            $table->integer('Id_event')->unsigned();
+            $table->integer('id_posts')->unsigned();
             $table->timestamps();
 
             $table->foreign('Id_user')->references('Id_user')->on('Users');
-            $table->foreign('Id_event')->references('Id_event')->on('Events');
+            $table->foreign('id_posts')->references('id_posts')->on('posts');
         });
     }
 

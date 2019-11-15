@@ -19,16 +19,25 @@ Route::get('/account', 'PagesController@account')->name('account');
 
 /*Shop*/
 Route::resource('shop', 'ShopController');
-
 Route::get('/shop', 'ShopController@index')->name('shop');
+Route::get('/add-to-cart/{id}',[
+    'uses' => 'ShopController@getAddToCart',
+    'as' => 'shop.addToCart'
+]);
+Route::get('{id_posts}/photos', 'ActiController@photos')->name('photos');
+
+/*Like*/
+Route::get('/like/{id}', 'ActiController@like');
+
 Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
 Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
 
-Route::get('/activity', 'PagesController@activity')->name('activity');
-Route::resource('Posts', 'PostsController');
+//Activity
+Route::resource('Posts', 'ActiController');
+Route::get('/Posts', 'ActiController@index')->name('Posts');
 
 //Comments
-//Route::post('comments/{id_posts}', ['uses' => 'CommentsController', 'as' => 'comments.store']);
+Route::post('/comment/{id_posts}', 'ActiController@comment');
 
 //Route::put('/Posts/{id}/edit','PostsController@update');
 //Route::delete('Posts/{id}','PostsController@destroy');
@@ -48,7 +57,8 @@ Route::delete('/admin/{id}', 'UsersController@destroyU');
 
 
 //      SEND EMAIL
-//Route::post('index','PagesController@index')->name('sendEmail');
+Route::get('signaleremail','MailController@signaler_email');
+Route::get('ideeemail','MailController@idee_email');
 
 
 Route::get('/', 'PagesController@index'); //path for the index

@@ -25,7 +25,7 @@
     </div>
 @endif
 <h1>Create Post</h1>
-    {!! Form::open(['action' => 'PostsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+    {!! Form::open(['action' => 'ActiController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
             {{Form::label('title', 'Title')}}
             {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
@@ -41,10 +41,17 @@
 {!! Form::close() !!}
 @endsection
 
-
+        @else
+@section('adminpage')
+<h2 style="color: red; text-align: center;">Vous n'avez pas le droit d'être ici.</h2>
+<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
+@endsection
+        @endif
 
 @else
+
+@section('adminpage')
 <h2 style="color: red; text-align: center;">Vous n'avez pas le droit d'être ici.</h2>
-<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/") ?>
-@endif
+<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
+@endsection
 @endif

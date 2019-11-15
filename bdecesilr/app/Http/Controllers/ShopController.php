@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Shop;
+use Session;
+use App\Cart;
 
 class ShopController extends Controller
 {
@@ -147,4 +149,13 @@ class ShopController extends Controller
         return redirect('/shop')->with('success', 'produit supprimé');
     }
 
+    public function getAddToCart(Request $request, $Id_product){
+        $product = Shop::find($Id_product);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->Id_product);
+
+        $request->session()->put('cart', $cart);
+        return redirect()->route('shop.main')->with('product',$product);
+    }
 }

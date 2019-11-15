@@ -3,6 +3,7 @@
 
 <!-- This code is the index page. -->
 @section('mainpage')
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <!--This indicators permit to indicate how many slides there are in the carousel -->
     <ol class="carousel-indicators">
@@ -49,30 +50,6 @@
         <h1>Présentation du BDE</h1>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/2G6XuVkj5wE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-
-<!--  Send email - signaler - button  -->
-<form action="{{ route('sendEmail') }}" method="post" style="text-align: center;">
-    <input type="submit" value="Signaler" />
-    <input type="hidden" name="button_pressed" value="PUT" />
-</form>
-
-<?php
-
-if(isset($_POST['button_pressed'])) {
-
-    $to      = 'maxim.wilmot@viacesi.fr';
-    $subject = 'LE BOSS';
-    $message = 'C\'est toi le boss mec!';
-    $headers = 'From: webmaster@example.com' . "\r\n" .
-        'Reply-To: webmaster@example.com' . "\r\n" .
-        'X-Mailer: PHP/' . phpversion();
-
-    mail($to, $subject, $message, $headers);
-
-    echo 'Email Sent.';
-}
-
-?>
 
 <!-- Necessary plugins -->
 <script src="{{asset('js/jquery.js')}}"></script>

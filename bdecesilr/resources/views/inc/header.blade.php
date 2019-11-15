@@ -53,10 +53,9 @@
                                         <a class="dropdown-item" href="{{ route('account') }}">
                                             Mon Compte
                                         </a>
-                                        
-                                        <div class="dropdown-divider"></div>
 
                                         @if(auth()->user()->Id_status==4)
+                                            <div class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="{{ route('admin') }}">
                                                 Administration
                                             </a>

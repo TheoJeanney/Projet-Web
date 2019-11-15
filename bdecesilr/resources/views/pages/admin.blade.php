@@ -1,9 +1,10 @@
-
+@if(Auth::check())
+    @if(auth()->user()->Id_status==4)
 @extends('layouts.app')
 
 @section('adminpage')
 
-<div class="container-fluid">
+<div class="container-fluid"></div>
 
     <h1>Utilisateurs</h1>
 
@@ -54,7 +55,7 @@
         @else
 @section('adminpage')
 <h2 style="color: red; text-align: center;">Vous n'avez pas le droit d'être ici.</h2>
-<?php header("Refresh:1;url={{route('index')}}") ?>
+<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
 @endsection
         @endif
 
@@ -62,7 +63,7 @@
 
 @section('adminpage')
 <h2 style="color: red; text-align: center;">Vous n'avez pas le droit d'être ici.</h2>
-<?php header("Refresh:1;url={{route('index')}}") ?>
+<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
 @endsection
 @endif
 

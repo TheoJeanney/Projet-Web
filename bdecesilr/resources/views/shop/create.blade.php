@@ -1,3 +1,6 @@
+@if(Auth::check())
+    @if(auth()->user()->Id_status==2)
+
 @extends('layouts.app')
 
 @section('content')
@@ -39,18 +42,34 @@
             {{Form::label('Product_stock', 'Stock')}}
             {{Form::number('Product_stock', '', ['class' => 'form-control', 'placeholder' => 'Stock'])}}
         </div>
-
+<!--
         <div class="form-group">
             {{Form::label('Id_category', 'Catégorie')}}
-             {{Form::select('size', [ $category=DB::select('SELECT * FROM Category'); 
-                                foreach($t as $post){
-                                echo '<option>'.$post->Campus_name.'</option>';], 'S')}}
-            {{Form::number('Id_category', '', ['class' => 'form-control', 'placeholder' => 'Catégorie'])}}
+            {{Form::number('Id_category', 
+            '<?php
+                //foreach($user as $user) {
+                    //$Nom_status=DB::select('SELECT Status_name FROM status WHERE '.$user->Id_status.' = status.Id_status')[0]->Status_name;
+                    //echo '<tr>';
+                    //echo '<td style="vertical-align: middle;" class="text-center">'.$user->User_lastname.'</td>';
+                    //echo '<td style="vertical-align: middle;" class="text-center">'.$Nom_status.'</td>';
+                    //echo '<td style="vertical-align: middle;" class="text-center">
+                    //    <a href="/projetwebf/bdecesilr/public/admin/'.$user->Id_user.'/editU" class="btn btn-primary">Edit</a>
+                    //    </td>';
+                    //echo '</tr>';
+                }
+            ?>', ['class' => 'form-control', 'placeholder' => 'Catégorie'])}}
 
         </div>
+    -->
         <div class="form-group">
             {{Form::file('Product_image')}}
         </div>
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
 @endsection
+Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
+@endsection
+
+@endif
+@endif
+

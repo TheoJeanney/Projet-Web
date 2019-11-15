@@ -10,4 +10,14 @@ class Comment extends Model
     {
         return $this->belongsTo('App\Post');
     }
+
+    protected $table = 'comments';
+    // Primary Key
+    public $primaryKey = 'id_comments';
+
+    protected $fillable = [
+        'id_comments','comment','comment_image','user_id','post_id'
+    ];
+    //Timestamps
+    public $timestamps = true;
 }

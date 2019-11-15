@@ -1,3 +1,7 @@
+@if(Auth::check())
+    @if(auth()->user()->Id_status==2)
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -36,3 +40,18 @@
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}
 @endsection 
+
+        @else
+@section('adminpage')
+<h2 style="color: red; text-align: center;">Vous n'avez pas le droit d'être ici.</h2>
+<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
+@endsection
+        @endif
+
+@else
+
+@section('adminpage')
+<h2 style="color: red; text-align: center;">Vous n'avez pas le droit d'être ici.</h2>
+<?php header("Refresh:1;url=/projetwebf/bdecesilr/public/index") ?>
+@endsection
+@endif

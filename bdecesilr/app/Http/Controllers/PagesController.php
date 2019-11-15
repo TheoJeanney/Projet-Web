@@ -15,12 +15,6 @@ class PagesController extends Controller
     public function condition(){
         return view('pages.condition');
     }
-    public function shopw(){
-        return view('pages.shopw');
-    }
-    public function activity(){
-        return view('pages.index');
-    }
     public function boite(){
         return view('pages.boite');
     }

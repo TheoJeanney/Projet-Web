@@ -15,7 +15,6 @@ class CreateBasketTable extends Migration
     {
         Schema::create('basket', function (Blueprint $table) {
             $table->increments('Id_basket');
-            $table->string('Basket_productName');
             $table->integer('Basket_amount');
             $table->float('Basket_totalPrice');
 

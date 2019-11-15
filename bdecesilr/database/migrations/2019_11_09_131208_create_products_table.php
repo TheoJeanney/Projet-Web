@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->increments('Id_product');
             $table->string('Product_name',100);
             $table->string('Product_description',100);
-            $table->decimal('Product_price',9,3);
+            $table->integer('Product_price');
             $table->integer('Product_stock');
             $table->string('Product_image',255);
             $table->integer('Id_category')->unsigned();
