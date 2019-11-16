@@ -16,7 +16,7 @@ class Comment extends Model
     public $primaryKey = 'id_comments';
 
     protected $fillable = [
-        'id_comments','comment','comment_image','user_id','post_id'
+        'id_comments','comment','user_id','post_id'
     ];
     //Timestamps
     public $timestamps = true;

@@ -22,8 +22,8 @@ class CreateBasketTable extends Migration
             $table->integer('Id_product')->unsigned();
             $table->timestamps();
 
-            $table->foreign('Id_user')->references('Id_user')->on('Users');
-            $table->foreign('Id_product')->references('Id_product')->on('Products');
+            $table->foreign('Id_user')->references('Id_user')->on('Users')->onDelete('cascade');
+            $table->foreign('Id_product')->references('Id_product')->on('Products')->onDelete('cascade');
         });
     }
 

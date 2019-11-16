@@ -20,14 +20,7 @@ class CreatePhotosTable extends Migration
             $table->increments('Id_photo');
             $table->string('Photo_name');
             $table->string('Photo_url');
-            $table->boolean('Photo_status');
-            $table->integer('Photo_liked')->default(0);
-            $table->integer('Id_user')->unsigned();
-            $table->integer('id_posts')->unsigned();
             $table->timestamps();
-
-            $table->foreign('Id_user')->references('Id_user')->on('Users');
-            $table->foreign('id_posts')->references('id_posts')->on('posts');
         });
     }
 

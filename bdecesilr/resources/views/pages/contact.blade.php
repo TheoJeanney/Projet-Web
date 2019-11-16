@@ -37,14 +37,13 @@
                                 @error('lastname')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>ss
+                                    </span>
                                 @enderror
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
-
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                                 @error('email')
@@ -65,12 +64,12 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
+                        <!<div class="form-group row">
                             <label for="textArea" ></label>Votre message</label>
-                            <button style="float: right;" class="btn btn-danger btn-xs" onclick="document.getElementById('textArea').value = ''"><i class="fa fa-trash-alt"></i></button>
+                            <button style="float: right;" class="btn btn-danger fa fa-trash" onclick="document.getElementById('textArea').value = ''"> </button>
                             <textarea class="form-control" id="textArea" rows="3"></textarea>
-                        </div>
-              
+                        </!<div>
+                        
                         <div style="text-align: center;">
                             <span>
                                 <button class="submit-btn site_button cta" type="submit">Envoyer l'email</button>
@@ -103,4 +102,5 @@
     </span>
 </div>
 </div>
+
 @endsection

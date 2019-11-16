@@ -4,16 +4,16 @@
 @section('mainpage')
 <div class="boutique">
     <h1>Boutique</h1>
-<div class="search">
-    <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</div>
+
+
+            <div class="form-group">
+                    <input class="form-control" type="text" id="search-product" value="" placeholder="Rechercher un produit"/>
+            </div>
+
 
     @if(Auth::check())
     @if(auth()->user()->Id_status>=2)
-    <a href="/projetwebf/bdecesilr/public/shop/create" class="btn btn-success">Ajouter un produit</a>
+    <a href="{{asset('shop/create')}}" class="btn btn-success">Ajouter un produit</a>
     @endif
 
         @if(auth()->user()->Id_status>=1)
@@ -44,4 +44,17 @@
     </div>
 
 </div>
+
+<script type="text/js">
+    $(document).ready(function(){
+        $('#search-product').keyup(function() {
+            
+            var produit = $(this).val();
+            console.log(produit);
+        });
+    });
+</script>
+
+
+
 @endsection

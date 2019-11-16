@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
         <div class="info">
             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">

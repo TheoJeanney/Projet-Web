@@ -15,11 +15,13 @@ class CreateSignInTable extends Migration
     {
         Schema::create('Sign_in', function (Blueprint $table) {
             //Our information in the database
-            $table->integer('Id_posts')->unsigned();
-            $table->integer('Id_user')->unsigned();
+            $table->increments('id_signin');
+            $table->integer('user_id')->unsigned();
+            $table->integer('post_id')->unsigned();
+            $table->timestamps();
 
-            $table->foreign('id_posts')->references('id_posts')->on('posts');
-            $table->foreign('Id_user')->references('Id_user')->on('Users');
+            $table->foreign('post_id')->references('id_posts')->on('posts')->onDelete('cascade');
+            $table->foreign('user_id')->references('Id_user')->on('Users')->onDelete('cascade');
         });
     }
 

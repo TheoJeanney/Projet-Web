@@ -6,7 +6,7 @@
     <h1>Les activités</h1>
         @if(Auth::check())
             @if(auth()->user()->Id_status>=2)
-                <a href="/projetwebf/bdecesilr/public/Posts/create" class="btn btn-success">Créer un post</a>
+                <a href="{{asset('Posts/create')}}" class="btn btn-success">Créer un post</a>
             @endif
         @endif
 
@@ -26,16 +26,8 @@
 <hr>
         @endforeach
     @else
-        <p>No posts found</p>
+        <p>Pas d'activités</p>
     @endif
-
-    @if(Auth::check())
-        @if(auth()->user()->Id_status>=2)
-            <a href="/projetwebf/bdecesilr/public/Posts/images"><i class="fa fa-download fa-2x"></i></a>
-        @endif
-    @endif
-
-
 
 </div>
 @endsection

@@ -45,13 +45,20 @@ Route::get('/like/{id}', 'ActiController@like');
 Route::get('image-upload', 'ImageUploadController@imageUpload')->name('image.upload');
 Route::post('image-upload', 'ImageUploadController@imageUploadPost')->name('image.upload.post');
 
+//Gallery
+Route::get('/gallery', 'GalleryController@index')->name('Gallery');
+
 //Activity
 Route::resource('Posts', 'ActiController');
 Route::get('/Posts', 'ActiController@index')->name('Posts');
+Route::get('/inscrit', 'ActiController@inscrit')->name('inscrit');
 
 //Comments
 Route::post('/comment/{id_posts}', 'ActiController@comment');
+Route::get('/inscript/{id}', 'ActiController@inscript');
 
+Route::get('/deleteComment/{id}','ActiController@deleteComment');
+route::get('/disinscript/{id}','ActiController@disinscript');
 //Route::put('/Posts/{id}/edit','PostsController@update');
 //Route::delete('Posts/{id}','PostsController@destroy');
 

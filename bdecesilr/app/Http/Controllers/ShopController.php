@@ -148,25 +148,22 @@ class ShopController extends Controller
         return redirect('/shop')->with('success', 'produit supprimé');
     }
 
-    public function getAddToCart(Request $request, $id){
+    public function getAddToCart(Request $request, $id) {
+
         $product = Shop::find($id);
         $cart = Session::has('cart') ? Session::get('cart') : null;
-        if(!$cart)
-        {
+        if(!$cart){
             $cart = new Cart($cart);
         }
-        $cart->add($product, $product->id_product);
-        return $cart->items;
+        $cart->add($product, $product->Id_product);
         $request->session()->put('cart', $cart);
         return redirect()->route('shop.main')->with('product',$product);
     }
-
     public function getCart(){
-        if (Session::has('cart')) {
+        if (!Session::has('cart')) {
             return view('shop.shopping-cart');
         }
-        $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
-        return view('shop.shopping-cart', ['products'=> $cart->items, 'totalPrice' => $cart->totalPrice]);
+        $cart = Session::get('cart');
+        return view('shop.shopping-cart', ['shops'=> $cart->items, 'totalPrice' =>$cart->totalPrice]);
     }
 }

@@ -9,6 +9,7 @@ use App\Comment;
 use Auth;
 use App\User;   
 use DB;
+use App\Signin;
 
 class ActiController extends Controller
 {
@@ -71,15 +72,18 @@ class ActiController extends Controller
         return redirect('/Posts')->with('success', 'Post envoyé');
     }
 
-    /** 
+    /**
      * @param int $id 
      * @return \Illuminate\Http\Response
     */
     public function show($id)
     {
+
         $likePost = Post::find($id);  
         //return $likePost;
         $likeCtr = DB::table('likes')->where('post_id',$likePost->id_posts)->count();
+        $inscript = Post::find($id);
+        //$inscriptPost = DB::table('sign_in')->where(['post_id',$inscript->id_posts]);
         //exit();
         $comments = DB::table('users')
             ->join('comments', 'users.Id_user', '=', 'comments.user_id')
@@ -164,51 +168,42 @@ class ActiController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
         $post->delete();
-        return redirect('/Posts')->with('success', 'Post supprimé');
+        return redirect('/Posts')->with('success', 'Post supprimé');    
+    }
+
+    public function deleteComment($id){
+        $comment= Comment::find($id);
+        $comment_id=$comment->post_id;
+        $comment->delete();
+        return redirect("/Posts/$comment_id")->with('success', 'Post supprimé');  
     }
 
     public function comment(Request $request, $id_posts){
 
         $this->validate($request, [
             'comment' => 'required',
-            'comment_image'=>'required|image'
         ]);
-
-        if($request->hasFile('comment_image')){
-            //Filename with extension
-            $filenameYExt = $request->file('comment_image')->getClientOriginalName();
-            //Filename without extension
-            $filenameNExt = pathinfo($filenameYExt, PATHINFO_FILENAME);
-            //Extension
-            $extension = $request->file('comment_image')->getClientOriginalExtension();
-            //Filename store
-            $filenameStore = $filenameNExt.'_'.time().'.'.$extension;
-            //Upload
-            $path = $request->file('comment_image')->storeAs('public/comment_image', $filenameStore);
-        } else {
-            $filenameStore = "noimage.jpg";
-        }
         $comment = new Comment;
         $comment->user_id = Auth::id();
 
         $comment->post_id = $id_posts;
         $comment->comment = $request->input('comment');
-        $comment->comment_image=$filenameStore;
 
         $comment->save();
-        return redirect("/$id_posts")->with('response', 'Comment Added Successfully');
+        return redirect("/Posts/$id_posts")->with('response', 'Comment Added Successfully');
     }
 
     public function like($id){
-
         $loggedin_user = Auth::user()->Id_user;
 
         $like_user = Like::where(['user_id' => $loggedin_user, 'post_id' => $id])->first();
+
         if(empty($like_user->user_id)){
             $user_id = Auth::user()->Id_user;
             $post_id = $id;
-
+    
             $like = new Like;
             $like->user_id = $user_id;
             $like->post_id = $post_id;
@@ -216,7 +211,39 @@ class ActiController extends Controller
             return redirect("/Posts/$id");
         }
         else{
+            DB::delete('DELETE FROM likes WHERE user_id = ?',[Auth::user()->Id_user]);
             return redirect("/Posts/$id");
         }
+    }
+
+    public function inscript($id){
+        $loggedin_user = Auth::user()->Id_user;
+        $inscript_user = Signin::where(['user_id' => $loggedin_user, 'post_id' => $id])->first();
+        if(empty($inscript_user->user_id)){
+
+            $user_id = Auth::user()->Id_user;
+            $post_id = $id;
+            $inscript = new Signin;
+            $inscript->user_id = $user_id;
+            $inscript->post_id = $post_id;
+
+            $inscript->save();
+            return redirect("/Posts/$id");
+        }
+        else{
+            return redirect("/Posts/$id");
+    }
+}
+
+    public function disinscript($id){
+        //test= Signin::delete('post_id')->where('user_id',Auth::user()->id_users);
+        DB::delete('DELETE FROM Sign_in WHERE user_id = ? AND post_id = ?',[Auth::user()->Id_user,$id]);
+        return redirect("/Posts/$id");
+    }
+
+
+    public function inscrit() {
+        
+        return view('posts.inscrit');
     }
 }

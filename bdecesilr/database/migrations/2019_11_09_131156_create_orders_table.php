@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->integer('Id_user')->unsigned();
             $table->timestamps();
 
-            $table->foreign('Id_user')->references('Id_user')->on('Users');
+            $table->foreign('Id_user')->references('Id_user')->on('Users')->onDelete('cascade');
 
         });
     }

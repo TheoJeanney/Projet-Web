@@ -24,7 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('Id_category')->unsigned();
             $table->timestamps();
 
-            $table->foreign('Id_category')->references('Id_category')->on('Category');
+            $table->foreign('Id_category')->references('Id_category')->on('Category')->onDelete('cascade');
         });
         DB::table('Products')->insert([
             ['Product_name' => 'Theo','Product_description' => 'Tellement sexy', 'Product_price' => 20, 'Product_stock' => 30,'Product_image'=>'image1','Id_category' => '1']

@@ -55,40 +55,17 @@
                 {{Form::label('email', 'Email')}}
                 {{Form::text('email', $users->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
             </div>
-            <!--
+            
             <div class="form-group">
                     {{Form::label('Id_status', 'Statut')}}
                     {{Form::text('Id_status', $users->Id_status, ['class' => 'form-control'])}}
             </div>
-        -->
-            <label for="campus" class="col-md-4 col-form-label text-md-right">{{ __('Campus') }}</label>
-
-            <div class="col-md-6">
-
-                <select id="inputState" class="form-control" name="campus"> <!-- the data are on a custom select list. -->
-                    <option selected>Choisissez votre campus</option>
-                    <!-- Check the database for all the campus -->
-                    <?php
-                        $campus=DB::select('SELECT * FROM Campus');
-                        //$camp=DB::select('SELECT * FROM Campus WHERE '.$users->Id_campus.' = campus.Id_campus'); 
-                        echo '<option>'$campus->Campus_name'</option>';
-                    ?>
-                </select>
-
-                @error('campus')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
-            </div>
-
-            <!--
+            
             <div class="form-group">
                 {{Form::label('Id_campus', 'Campus')}}
                 {{Form::text('Id_campus', $users->Id_campus, ['class' => 'form-control'])}}
             </div>
-            -->
-
+            
             {{Form::hidden('method_field','PUT')}}
             {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 

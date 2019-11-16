@@ -17,6 +17,7 @@
 
   <a href="{{asset('Posts')}}">Activités</a>
   <a href="{{route('shop')}}">Boutique</a>
+  <a href="{{route('Gallery')}}">Galerie (merci c'est corrigé)</a>
   @if(Auth::check())
     @if(auth()->user()->Id_status>=1)
   <a href="{{route('boite')}}"> Boite à idées</a>

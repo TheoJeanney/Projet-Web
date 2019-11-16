@@ -26,8 +26,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('Id_status')->references('Id_status')->on('Status');
-            $table->foreign('Id_campus')->references('Id_campus')->on('Campus');
+            $table->foreign('Id_status')->references('Id_status')->on('Status')->onDelete('cascade');
+            $table->foreign('Id_campus')->references('Id_campus')->on('Campus')->onDelete('cascade');
 
         });
 

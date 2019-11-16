@@ -18,8 +18,8 @@ class CreateContainsTable extends Migration
             $table->integer('Id_product')->unsigned();
             $table->integer('Id_order')->unsigned();
 
-            $table->foreign('Id_product')->references('Id_product')->on('Products');
-            $table->foreign('Id_order')->references('Id_order')->on('Orders');
+            $table->foreign('Id_product')->references('Id_product')->on('Products')->onDelete('cascade');
+            $table->foreign('Id_order')->references('Id_order')->on('Orders')->onDelete('cascade');
         });
     }
 

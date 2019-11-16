@@ -17,19 +17,24 @@ class MailController extends Controller {
                 
         $user = Auth::user();
         $com=DB::select('SELECT comment FROM comments WHERE '.$user->Id_user.' = comments.user_id')[0]->comment;
-        $sendE=DB::select('SELECT email FROM users WHERE '.$user->Id_status.' = "2"')[0]->email;
+        $sendE=DB::select('SELECT * FROM users WHERE Id_status="2"');
         $data = array('name'=>"$user->User_firstname", 'com'=>"$com");
+        $result = DB::query($sendE);
 
-        Mail::send('mail', $data, function($message) {
+        while ($row = $result) {
+            Mail::send('mail', $data, function($message) {
 
-            $message->to('maxim.wilmot@viacesi.fr')->subject('Contenu inapproprié');
-            $message->from('mwukfr@gmail.com','Personnel CESI');
-        
-        });
-
+                mail($row['email'],$email_subject,$email_message);
+                //$message->to('maxim.wilmot@viacesi.fr')->subject('Contenu inapproprié');
+                //$message->from('mwukfr@gmail.com','Personnel CESI');
+            
+            });
+        }
         echo "Commentaire signalé";
 
     }
+    }
+
 /**
     public function idee_email() {
                 
@@ -49,5 +54,4 @@ class MailController extends Controller {
     }
 */
 
-}
 ?>

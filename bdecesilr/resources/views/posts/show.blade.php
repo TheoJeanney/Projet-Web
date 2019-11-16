@@ -15,10 +15,29 @@
 
                 <div role="presentation">
                         <br/>
+
+                        <p>
                         <a href='{{ url("/like/{$post->id_posts}") }}'> 
                                 <span class="fa fa-thumbs-up"> Like({{$likeCtr}})</span>
                         </a>
-                </div>  
+                        </p>
+                        <p>
+
+                        <a href='{{ url("/inscript/{$post->id_posts}") }}'> 
+                                <span class="btn btn-success"> S'inscrire</span>
+                        </a>
+                        </p>
+
+                        <p>
+                        Vous êtes inscrit
+                        </p>
+                        <p>
+                        <a href='{{ url("/disinscript/{$post->id_posts}") }}'> 
+
+                        <span class="btn btn-danger"> Se désinscrire</span>
+                        </a>
+                        </p>
+                </div>
 
                 <hr>
                 <small>{{$post->created_at}}</small>
@@ -26,10 +45,12 @@
 
                 @if(Auth::check())
                         @if(auth()->user()->Id_status>=2)
-                                <a href="/projetwebf/bdecesilr/public/Posts/{{$post->id_posts}}/edit" class="btn btn-success pull-right">Edit</a>
+                                <a href="{{asset('Posts/'.$post->id_posts.'/edit')}}" class="btn btn-success pull-right">Edit</a>
+                                <a href="{{asset('Posts/'.$post->id_posts.'/list')}}" class="btn btn-success pull-left">Accéder à la liste des inscrits</a>
+
                                 {!!Form::open(['action' => ['ActiController@destroy', $post->id_posts], 'method' => 'POST', 'class' => 'pull-right'])!!}
                                         {{Form::hidden('_method', 'DELETE')}}
-                                        {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                        {{Form::submit('Supprimer', ['class' => 'btn btn-danger'])}}
                                 {!!Form::close()!!}
                         @endif
                 @endif
@@ -40,9 +61,6 @@
 
         <form method="POST" action='{{ url("/comment/{$post->id_posts}") }}'>
                 {{csrf_field()}}
-                        <div class="form-group"></div>
-                                {{Form::file('comment_image')}}
-                        </div>
                         <div class="form-group"></div>
                                 <textarea id="comment" rows="6" class="form-control" name="comment" required autofocus></textarea>
                         </div>
@@ -56,15 +74,24 @@
                 @if(count($comments) > 0)
                         @foreach($comments->all() as $comment)
                                 <hr>
-                                <img src="/projetwebf/bdecesilr/storage/app/public/wb_image/{{ $comment->comment_image }}">
-                                <p>{{ $comment->id_comments }}</p>
+
+                                <p>{{ $comment->created_at}}</p>
                                 <p>{{ $comment->comment }}</p>
                                 <p>Postée par {{ $comment->User_firstname }}</p>
                                 @if(Auth::check())
+                                        @if(auth()->user()->Id_status==2)
+                                <a href='{{ url("/deleteComment/{$comment->id_comments}") }}'> 
+                                <span class="btn btn-danger"> Supprimer</span>
+                                </a>
+                                @endif
+                                @endif
+                                @if(Auth::check())
                                         @if(auth()->user()->Id_status==3)
-                                                <a href="/projetwebf/bdecesilr/public/signaleremail" class="btn btn-secondary" role="button" aria-disabled="true">Signaler</a>
+                                                <a href="{{asset('signaleremail')}}" class="btn btn-secondary" role="button" aria-disabled="true">Signaler</a>
                                 @endif
                                 @endif
+                                <hr>
+
                         @endforeach
                 @else
                         <p class="font-italic"> Pas de commentaires</p>
