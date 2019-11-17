@@ -24,19 +24,24 @@
     <tbody>
 
         <?php
-            $user=DB::select('SELECT * FROM users WHERE ')
 
-            //$Nom_status=DB::select('SELECT Status_name FROM status WHERE '.$user->Id_status.' = status.Id_status')[0]->Status_name;
-            //$Nom_campus=DB::select('SELECT Campus_name FROM campus WHERE '.$user->Id_campus.' = campus.Id_campus')[0]->Campus_name;
+            $user=DB::select('SELECT * FROM users INNER JOIN sign_in on users.Id_user=sign_in.user_id WHERE post_id= ? ',[$id]);
+
+            foreach ($user as $user){
+
+                $Name_status=DB::select('SELECT Status_name FROM `status` WHERE Id_status=?',[$user->Id_status])[0]->Status_name;
+                $Name_campus=DB::select('SELECT Campus_name FROM campus WHERE Id_campus=?',  [$user->Id_campus])[0]->Campus_name;
+
             echo '<tr>';
             echo '<td style="vertical-align: middle;" class="text-center">'.$user->User_firstname.'</td>';
             echo '<td style="vertical-align: middle;" class="text-center">'.$user->User_lastname.'</td>';
             echo '<td style="vertical-align: middle;" class="text-center">'.$user->email.'</td>';
             echo '<td style="vertical-align: middle;" class="text-center">0'.$user->User_phone.'</td>';
-            echo '<td style="vertical-align: middle;" class="text-center">'.$Nom_status.'</td>';
-            echo '<td style="vertical-align: middle;" class="text-center">'.$Nom_campus.'</td>';
+            echo '<td style="vertical-align: middle;" class="text-center">'.$Name_status.'</td>';
+            echo '<td style="vertical-align: middle;" class="text-center">'.$Name_campus.'</td>';
             echo '</tr>';
 
+            }
         ?>
     
     </tbody>

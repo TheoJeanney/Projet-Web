@@ -397,11 +397,10 @@ hr {
   font-weight: bold;
 }
 
-.library{
-  display: block;
-  margin: auto auto 2%  auto;
-  width:50%;
-  height:50%;
+.photo {
+  text-align: center;
+  margin: 2%; 
+  padding: auto 10% 10% auto;
 }
 
 /*------------------------------------------------SHOP-----------------------------------------------*/

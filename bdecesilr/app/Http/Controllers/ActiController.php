@@ -242,9 +242,9 @@ class ActiController extends Controller
 }
 
 
-    public function list() {
+    public function list($id) {
         
-        return view('posts.list');
+        return view('posts.list')->with('id',$id);
     }
 
     public function file(Request $request){

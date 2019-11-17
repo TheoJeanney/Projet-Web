@@ -7,19 +7,20 @@
 <h1 class= text-danger>{{$post->title}}</h1>
 
 
+        <div class="photo">  
+<?php $img = DB::SELECT('SELECT file_name FROM photos WHERE id_post = ?', [$post->id_posts]);
 
-<?php $img = DB::SELECT('SELECT file_name FROM photos WHERE id_post = ?', [$post->id_posts]); 
-foreach ($img as $img)
+        foreach ($img as $img)
 {
     //echo "<img src="{{asset('projetwebf/bdecesilr/public/storage/web_image/'$img')}}">";
     //echo (<img src="{{asset('projetwebf/bdecesilr/public/storage/web_image/'.$img.'')}}"> );
     //<img src="{{asset('projetwebf/bdecesilr/public/storage/web_image/20191117140119.jpg')}}"> 
-?>
-
-<img class="library" src="{{asset('projetwebf/bdecesilr/public/storage/web_image/'.$img->file_name.'')}}"> 
+?>         
+                        <img style="width: 20%; margin:auto 10% 10% auto;"src="{{asset('projetwebf/bdecesilr/public/storage/web_image/'.$img->file_name.'')}}"> 
 <?php 
 } 
 ?>
+        </div>    
                 <p><a href='{{ url("/likeL/{$post->id_posts}") }}'> 
                 <span class="fa fa-thumbs-up"> Like({{$likeCtr}})</span>
                 </a></p>
@@ -30,7 +31,7 @@ foreach ($img as $img)
                 {{csrf_field()}}
                         <div class="form-group"></div>
                                 <textarea id="comment" rows="6" class="form-control" name="comment" required autofocus placeholder="Votre commentaire..."></textarea>
-                        </div>
+                        </a>
                         <div class="form-group">
                         <button type="submit" class="btn btn-success btn-lg btn-block">Commenter</button>
                         </div>
@@ -50,7 +51,7 @@ foreach ($img as $img)
                                 <a href='{{ url("/deleteCommentL/{$comment->id_comments}") }}'> 
                                 <span class="btn btn-danger"> Supprimer</span>
                                 </a>
-                                @endif
+                                 @endif
                                 @endif
                                 @if(Auth::check())
                                         @if(auth()->user()->Id_status==3)
