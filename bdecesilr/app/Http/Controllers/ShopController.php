@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Shop;
 use Session;
 use App\Cart;
-
+use DB;
 class ShopController extends Controller
 {
     /** 
@@ -57,13 +57,15 @@ class ShopController extends Controller
             $filenameStore = "noimage.jpg";
         }
         //Create an event
+
+        $category=DB::select('SELECT Id_category FROM Category WHERE Category_name=?',[request('Id_category')])[0]->Id_category;
         $shop = new Shop;
         $shop->Product_name = $request->input('Product_name');
         $shop->Product_description = $request->input('Product_description');
         $shop->Product_image = $filenameStore;
         $shop->Product_price=$request->input('Product_price');
         $shop->Product_stock=$request->input('Product_stock');
-        $shop->Id_category=$request->input('Id_category');
+        $shop->Id_category=$category;
         $shop->save();
 
         return redirect('/shop')->with('success', 'Post envoyé');
@@ -166,4 +168,5 @@ class ShopController extends Controller
         $cart = Session::get('cart');
         return view('shop.shopping-cart', ['shops'=> $cart->items, 'totalPrice' =>$cart->totalPrice]);
     }
+
 }

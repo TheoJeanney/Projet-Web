@@ -18,9 +18,12 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             //Our information in the database
             $table->increments('Id_photo');
-            $table->string('Photo_name');
-            $table->string('Photo_url');
+            $table->integer('id_post')->unsigned();
+            $table->string('file_name',255);
+
             $table->timestamps();
+
+            $table->foreign('id_post')->references('id_posts')->on('posts')->onDelete('cascade');
         });
     }
 

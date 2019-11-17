@@ -2,6 +2,9 @@
     @if(auth()->user()->Id_status>=2)
 
 @extends('layouts.app')
+<title>Modifier l'activité</title>
+<link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
+
 
 @section('content')
 <a href="{{asset('/Posts/'.$post->id_posts)}}" class="btn btn-danger">Retour</a>
@@ -19,6 +22,8 @@
         <div class="form-group"></div>
             {{Form::file('web_image')}}
         </div>
+        <br/>
+        <br/>
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 {!! Form::close() !!}

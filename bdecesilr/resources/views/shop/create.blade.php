@@ -2,6 +2,9 @@
     @if(auth()->user()->Id_status==2)
 
 @extends('layouts.app')
+<title>Créer un article</title>
+<link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
+
 
 @section('content')
 <a href="{{asset('/shop')}}" class="btn btn-danger">Retour</a>
@@ -43,11 +46,24 @@
             {{Form::number('Product_stock', '', ['class' => 'form-control', 'placeholder' => 'Stock'])}}
         </div>
 
-        <div class="form-group">
-            {{Form::label('Id_category', 'Catégorie')}}
-            {{Form::number('Id_category', '', ['class' => 'form-control', 'placeholder' => 'Catégorie'])}}
+
+    <div class="form-group">
+        <label for="Id_category"  class="col-md-4 col-form-label text-md-left">{{__('Catégorie')}}</label>
+        <div class="col-md-6">
+            <select id="inputState" class="form-control" name="Id_category"> <!-- the data are on a custom select list. -->
+            <option selected>Choisissez votre catégorie</option>
+                <?php 
+                $cat=DB::select('SELECT Category_name FROM Category ');
+                foreach($cat as $cat){
+                echo '<option>'.$cat->Category_name.'</option>';
+                ?>
+    </select>
 
         </div>
+
+        <?php }
+        ?>
+
         <div class="form-group">
             {{Form::file('Product_image')}}
         </div>

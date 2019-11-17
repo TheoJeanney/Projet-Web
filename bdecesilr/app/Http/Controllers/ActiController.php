@@ -10,6 +10,9 @@ use Auth;
 use App\User;   
 use DB;
 use App\Signin;
+use App\library;
+use VerumConsilium\Browsershot\Facades\PDF;
+use App\Image;
 
 class ActiController extends Controller
 {
@@ -22,7 +25,7 @@ class ActiController extends Controller
     {
         $posts = Post::orderBy('id_posts','desc')->get();
 
-        return view('posts.index')->with('posts', $posts);
+        return view('posts.index')->with('posts', $posts);  
     }
 
     /** 
@@ -80,11 +83,13 @@ class ActiController extends Controller
     {
 
         $likePost = Post::find($id);  
-        //return $likePost;
         $likeCtr = DB::table('likes')->where('post_id',$likePost->id_posts)->count();
         $inscript = Post::find($id);
-        //$inscriptPost = DB::table('sign_in')->where(['post_id',$inscript->id_posts]);
-        //exit();
+
+        $insCpt=0;
+        if(Auth::check()) {
+        $insCpt = Signin::where(['user_id' => Auth::user()->Id_user, 'post_id' => $id])->count();
+        }
         $comments = DB::table('users')
             ->join('comments', 'users.Id_user', '=', 'comments.user_id')
             ->join('posts', 'comments.post_id', '=', 'posts.id_posts')
@@ -93,7 +98,7 @@ class ActiController extends Controller
             ->get();
 
         $post = Post::find($id);
-        return view('posts.show',['comments'=>$comments, 'likeCtr' => $likeCtr])->with('post', $post);
+        return view('posts.show',['comments'=>$comments, 'likeCtr' => $likeCtr,'insCpt'=>$insCpt])->with('post', $post);
 
     }
     
@@ -185,7 +190,7 @@ class ActiController extends Controller
         $this->validate($request, [
             'comment' => 'required',
         ]);
-        $comment = new Comment;
+        $comment = new Comment; 
         $comment->user_id = Auth::id();
 
         $comment->post_id = $id_posts;
@@ -231,19 +236,61 @@ class ActiController extends Controller
             return redirect("/Posts/$id");
         }
         else{
+            DB::delete('DELETE FROM Sign_in WHERE user_id = ? AND post_id = ?',[Auth::user()->Id_user,$id]);
             return redirect("/Posts/$id");
     }
 }
 
-    public function disinscript($id){
-        //test= Signin::delete('post_id')->where('user_id',Auth::user()->id_users);
-        DB::delete('DELETE FROM Sign_in WHERE user_id = ? AND post_id = ?',[Auth::user()->Id_user,$id]);
+
+    public function list() {
+        
+        return view('posts.list');
+    }
+
+    public function file(Request $request){
+        $imagename=time().".".$request->file('photo')->extension();
+
+        $request->file('photo')->move(base_path().'public/images/'.$imagename);
+    
+        DB::table("INSERT INTO photos ('Photo_url','id_post') VALUES ('?','?')" , [$imagename,2]);
+
         return redirect("/Posts/$id");
     }
 
+    public function exportpdf($id){
 
-    public function inscrit() {
+        $user = User::find($id);
         
-        return view('posts.inscrit');
+        return $pdf = PDF::loadView('user.pdf',$user)->margin(20,0,0,20)->download();
+
+
     }
+
+    public function save($id)
+    {
+    request()->validate([
+            'fileUpload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+
+
+    if ($files = request()->file('fileUpload')) {
+        $destinationPath = 'projetwebf/bdecesilr/public/storage/web_image/'; // upload path
+        $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+        $files->move($destinationPath, $profileImage);
+        $insert['file_name'] = $profileImage;
+        $insert['id_post'] = $id;
+
+
+        $check = Image::insertGetId($insert);
+        return redirect("/Posts/$id")
+        ->withSuccess('Great! Image has been successfully uploaded.');
+    }
+}
+
+
+    function imprimir($id){
+        $pdf = \PDF::loadView('pdf');
+        return $pdf->download('primerpdf.pdf');
+    }
+
 }

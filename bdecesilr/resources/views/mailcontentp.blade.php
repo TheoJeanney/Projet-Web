@@ -1,0 +1,1 @@
+<p>{{$data['name']}} à passé une commande</p>

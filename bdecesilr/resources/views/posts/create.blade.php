@@ -2,6 +2,9 @@
     @if(auth()->user()->Id_status==2)
 
 @extends('layouts.app')
+<title>Créer une activité</title>
+<link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
+
 
 @section('content')
 <a href="{{asset('/Posts')}}" class="btn btn-danger">Retour</a>
@@ -24,15 +27,15 @@
         {{session('error')}}
     </div>
 @endif
-<h1>Create Post</h1>
+<h1 class="row justify-content-center"></h1>Créer une activité</h1>
     {!! Form::open(['action' => 'ActiController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
-            {{Form::label('title', 'Title')}}
-            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
+            {{Form::label('title', 'Titre')}}
+            {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Titre'])}}
         </div>
-        <div class="form-group">
-            {{Form::label('body', 'Body')}}
-            {{Form::textarea('body', '', ['class' => 'form-control', 'placeholder' => 'Body Text'])}}
+        <div class="form-group"></div>
+            {{Form::label('body', 'Description')}}
+            {{Form::textarea('body', '', ['class' => 'form-control', 'placeholder' => 'Description'])}}
         </div>
         <div class="form-group">
             {{Form::file('web_image')}}

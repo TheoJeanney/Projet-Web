@@ -14,7 +14,7 @@
                         {{csrf_field()}}
 
                         <div class="form-group row">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Prénom') }}</label>
+                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Prénom *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus placeholder="Prénom">
@@ -28,7 +28,7 @@
                         </div>
                         
                         <div class="form-group row">
-                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
+                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Nom *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" placeholder="Nom">
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Téléphone') }}</label>
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Téléphone *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required placeholder="Numéro de téléphone">
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="campus" class="col-md-4 col-form-label text-md-right">{{ __('Campus') }}</label>
+                            <label for="campus" class="col-md-4 col-form-label text-md-right">{{ __('Campus *') }}</label>
 
                             <div class="col-md-6">
                             <select id="inputState" class="form-control" name="campus"> <!-- the data are on a custom select list. -->
@@ -94,11 +94,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Mot de passe">
                                 <input type="checkbox" onclick="ShowPassA()"> Montrer le mot de passe <!-- check to show the password -->
+                                <h6><small>Mettre au minimum 8 caractères dont une majuscule et un chiffre</small></h6>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong> <!-- if there's an invalid password, an alert appears -->
@@ -108,7 +109,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmation') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmation *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirmer votre mot de passe">
@@ -118,10 +119,16 @@
                         <div class="condition">
                             <p>En créant un compte, vous acceptez nos 
                                 <a href="{{route('condition')}}" class="linkC">
-                                    conditions générales d'utilisation et de confidentialité 
+                                    Conditions Générales de Vente et d'Utilisation
                                 </a>
                                 <input type="checkbox" onclick="#" required> <!-- check to accept the condition -->
                             </p>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <small >* : Champ obligatoire</small>
+                            </div>
                         </div>
                             
                         <div class="form-group row mb-0"></div>

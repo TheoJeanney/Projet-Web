@@ -3,9 +3,14 @@
 
 
 @extends('layouts.app')
+<title>Modifier un article</title>
+<link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
+
 
 @section('content')
-<h1>Edit</h1>
+<a href="{{asset('/shop')}}" class="btn btn-danger float-left">Retour</a>
+<h1  class="row justify-content-center" >Modifier l'article</h1>
+
     {!! Form::open(['action' => ['ShopController@update', $shop->Id_product], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
             {{Form::label('Product_name', 'Nom du produit')}}

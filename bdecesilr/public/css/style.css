@@ -1,3 +1,4 @@
+/*StyleSheet for the website*/
 
 .editUtab {
   width:100%;
@@ -382,6 +383,27 @@ hr {
   color: white;
 }
 
+/*-------------------------------------------------GALLERY-----------------------------------------------------------*/
+
+/* style of gallery parts*/
+.gallery {
+  text-align: center;
+}
+
+.gallery h1{
+  margin: 0.5em auto 2em;
+  text-align: center;
+  text-decoration: overline underline; 
+  font-weight: bold;
+}
+
+.library{
+  display: block;
+  margin: auto auto 2%  auto;
+  width:50%;
+  height:50%;
+}
+
 /*------------------------------------------------SHOP-----------------------------------------------*/
 
 /* style of activity parts*/
@@ -522,3 +544,20 @@ p#counterBlock {
   font-weight: bold;
   margin-top:7px
 }
+
+
+/***** SEARCH BAR ******/
+#searchbar{ 
+	margin-left: 15%; 
+	padding:15px; 
+	border-radius: 10px; 
+}
+
+#list{ 
+	font-size: 1.5em; 
+	margin-left: 90px; 
+} 
+
+.animals{ 
+display: list-item;	 
+} 

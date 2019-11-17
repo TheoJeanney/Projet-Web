@@ -4,6 +4,7 @@
 <!-- This code is the index page. -->
 @section('mainpage')
 
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <!--This indicators permit to indicate how many slides there are in the carousel -->
     <ol class="carousel-indicators">
