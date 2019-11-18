@@ -17,12 +17,15 @@ class CreateCategoryTable extends Migration
             //Our information in the database
             $table->increments('Id_category');
             $table->string('Category_name',100);
-            $table->string('slug',100);
             $table->timestamps();
         });
 
         DB::table('Category')->insert([
-            ['Category_name' => 'Maxim','slug' => 'pute']
+            ['Category_name' => 'Tee_shirt'],
+            ['Category_name' => 'Pantalon'],
+            ['Category_name' => 'Chapeau'],
+            ['Category_name' => 'Pull'],
+            ['Category_name' => 'Tesla'],
         ]);
 
 

@@ -13,6 +13,7 @@ class CreateLikesLibraryTable extends Migration
      */
     public function up()
     {
+        //Creation of like library table
         Schema::create('likesLibrary', function (Blueprint $table) {
             $table->increments('id_like');
             $table->integer('user_id')->unsigned();

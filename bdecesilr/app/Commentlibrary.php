@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+//Comment for the library
 class Commentlibrary extends Model
 {
     public function post()

@@ -14,7 +14,7 @@ class CreateContainsTable extends Migration
     public function up()
     {
         Schema::create('Contains', function (Blueprint $table) {
-            //Our information in the database
+            //Our information in the contains table
             $table->integer('Id_product')->unsigned();
             $table->integer('Id_order')->unsigned();
 

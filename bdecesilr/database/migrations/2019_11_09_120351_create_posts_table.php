@@ -13,6 +13,7 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        //Create the posts table
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id_posts');
             $table->string('title',150);
@@ -21,9 +22,6 @@ class CreatePostsTable extends Migration
             //$table->date('date');
             $table->timestamps();
         });
-        DB::table('posts')->insert([
-            ['title' => 'Lucas','body' => 'Trop beau', 'web_image' => 'image1']
-        ]);
     }
 
     /**

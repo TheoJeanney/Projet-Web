@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 <title>Liste Inscrits</title>
-
+<!------------------------------------------------List of all sign users--------------------------------------------------------->
 @section('content')
 
 <h1>Etudiants inscrits</h1>

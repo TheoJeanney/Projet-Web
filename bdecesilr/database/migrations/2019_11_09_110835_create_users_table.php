@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        //Create the table
         Schema::create('Users', function (Blueprint $table) {
             //Our information in the database
             $table->increments('Id_user');
@@ -31,12 +32,12 @@ class CreateUsersTable extends Migration
 
         });
 
-        
+        //Insert 4 roles to check the user rights
         DB::table('Users')->insert([
-            ['User_firstname' => 'Theo','User_lastname' => 'role1', 'email' => 'role1@orange.fr', 'User_phone' => '0637832389','password' => bcrypt('test1') , 'Id_status' => '1','Id_campus' => '10'],
-            ['User_firstname' => 'Max','User_lastname' => 'role2', 'email' => 'role2@orange.fr', 'User_phone' => '0637745389','password' => bcrypt('test2') , 'Id_status' => '2','Id_campus' => '7'],
-            ['User_firstname' => 'Joana','User_lastname' => 'role3', 'email' => 'role3@orange.fr', 'User_phone' => '0632541389','password' => bcrypt('test3') , 'Id_status' => '3','Id_campus' => '5'],
-            ['User_firstname' => 'Lulu','User_lastname' => 'role4', 'email' => 'role4@orange.fr', 'User_phone' => '0658694789','password' => bcrypt('test4') , 'Id_status' => '4','Id_campus' => '2'],
+            ['User_firstname' => 'Theo','User_lastname' => 'role1', 'email' => 'etudiant@cesi.fr', 'User_phone' => '0637832389','password' => bcrypt('etudiant') , 'Id_status' => '1','Id_campus' => '10'],
+            ['User_firstname' => 'Max','User_lastname' => 'role2', 'email' => 'bde@cesi.fr', 'User_phone' => '0637745389','password' => bcrypt('bde') , 'Id_status' => '2','Id_campus' => '7'],
+            ['User_firstname' => 'Joana','User_lastname' => 'role3', 'email' => 'personnel@cesi.fr', 'User_phone' => '0632541389','password' => bcrypt('personnel') , 'Id_status' => '3','Id_campus' => '5'],
+            ['User_firstname' => 'Lulu','User_lastname' => 'role4', 'email' => 'admin@cesi.fr', 'User_phone' => '0658694789','password' => bcrypt('admin') , 'Id_status' => '4','Id_campus' => '2'],
             ]);
     }
 

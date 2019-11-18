@@ -5,7 +5,7 @@
 <title>My Account</title>
 
 @section('content')
-
+<!------------------------------------------------Show information of my account------------------------------------------------>
 <h1>Vos informations</h1>
 
     <table class="table table-striped">

@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+//Database for the image
 class Image extends Model
 {
     // Table Name

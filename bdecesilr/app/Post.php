@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+//Post model on database
 class Post extends Model
 {
     // Table Name

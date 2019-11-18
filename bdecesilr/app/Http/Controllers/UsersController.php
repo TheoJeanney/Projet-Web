@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth;
 use App\User;
-
+//Controller for User
 class UsersController extends Controller
 {
     public function editU($id)
@@ -13,7 +13,7 @@ class UsersController extends Controller
         $user=User::find($id);
         return view('pages.editU')->with('users', $user);
     }
-
+//Update users
     public function update(Request $request, $id)
     { 
         $this->validate($request,
@@ -36,7 +36,7 @@ class UsersController extends Controller
 
         return redirect('admin');
     }
-
+//Destroy an user.
     public function destroyU($id)
     {
         $user=User::find($id);

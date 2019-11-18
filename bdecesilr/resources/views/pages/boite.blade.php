@@ -6,39 +6,24 @@
 
 @section('mainpage')
 
-<div>
-    <label for="article"><b>Titre de votre idée</b></label>
-        <input id="subject" type="text" class="form-control @error('name') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="name" placeholder="Votre idée">
-        @error('subject')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-</div>
-
-<div>
-    <label for="lastname"><b>Nom</b></label>
-        <input id="subject" type="text" class="form-control @error('name') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="name" placeholder="Nom">
-        @error('subject')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-</div>
-
-<div>
-    <label for="firstname"><b>Prénom</b></label>
-        <input id="subject" type="text" class="form-control @error('name') is-invalid @enderror" name="subject" value="{{ old('subject') }}" required autocomplete="name" placeholder="Nom">
-        @error('subject')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
-</div>
-
-<div>
-    <label for="textArea"><b>Votre message</b></label>
-    <textarea class="form-control" id="textArea" rows="3"></textarea><br />
+<form method="post" action="{{ url('sendemail/send') }}">
+    {{ csrf_field() }}
+    <div class="form-group">
+        <label>Entréz votre nom</label>
+        <input type="text" name="name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Entrez votre email</label>
+        <input type="text" name="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Soumettez votre idée</label>
+        <textarea name="message" class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="submit" name="send" value="Send" class="btn btn-info" />
+    </div>
+</form>
 </div>
 
 <div>   
@@ -64,13 +49,13 @@
 
         @endif
 
-  
+
 
         @if (count($errors) > 0)
 
             <div class="alert alert-danger">
 
-                <strong>Whoops!</strong> There were some problems with your input.
+                Un<strong>problème</strong> est survenu.
 
                 <ul>
 
@@ -85,24 +70,6 @@
             </div>
 
         @endif
-
-  
-
-        <form action="" method="POST" enctype="multipart/form-data">
-
-            @csrf
-
-                <div></div>
-
-                    <button type="submit" class="btn btn-success">Envoyer</button>
-
-                </div>
-
-
-            </div>
-
-        </form>
-
 
         </div>
 

@@ -13,6 +13,7 @@ class CreateBasketTable extends Migration
      */
     public function up()
     {
+        //Creation of basket table
         Schema::create('basket', function (Blueprint $table) {
             $table->increments('Id_basket');
             $table->integer('Basket_amount');

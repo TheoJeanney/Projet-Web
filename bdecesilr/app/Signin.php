@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+//Signin model
 class Signin extends Model
 {
     // Table Name

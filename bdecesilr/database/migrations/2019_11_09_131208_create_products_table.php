@@ -14,7 +14,7 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('Products', function (Blueprint $table) {
-            //Our information in the database
+            //Our information in the product
             $table->increments('Id_product');
             $table->string('Product_name',100);
             $table->string('Product_description',100);
@@ -26,9 +26,6 @@ class CreateProductsTable extends Migration
 
             $table->foreign('Id_category')->references('Id_category')->on('Category')->onDelete('cascade');
         });
-        DB::table('Products')->insert([
-            ['Product_name' => 'Theo','Product_description' => 'Tellement sexy', 'Product_price' => 20, 'Product_stock' => 30,'Product_image'=>'image1','Id_category' => '1']
-        ]);
     }  
 
     /**

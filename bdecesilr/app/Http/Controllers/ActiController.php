@@ -21,6 +21,7 @@ class ActiController extends Controller
      * 
      * @return \Illuminate\Http\Response
     */
+    //Return the index of all events
     public function index()
     {
         $posts = Post::orderBy('id_posts','desc')->get();
@@ -32,6 +33,7 @@ class ActiController extends Controller
      * 
      * @return \Illuminate\Http\Response
     */
+    //function for create an event
     public function create()
     {
         
@@ -42,6 +44,7 @@ class ActiController extends Controller
      * @param \Illuminate\Http\Request $request 
      * @return \Illuminate\Http\Response
     */
+
     public function store(Request $request)
     {
         
@@ -79,6 +82,7 @@ class ActiController extends Controller
      * @param int $id 
      * @return \Illuminate\Http\Response
     */
+    //Display for an event
     public function show($id)
     {
 
@@ -107,6 +111,7 @@ class ActiController extends Controller
      * @param int $id 
      * @return \Illuminate\Http\Response
     */
+    //Edit the posts
     public function edit($id)
     {
         
@@ -170,6 +175,7 @@ class ActiController extends Controller
      * @param int $id 
      * @return \Illuminate\Http\Response
     */
+    //Remove an event
     public function destroy($id)
     {
         $post = Post::find($id);
@@ -178,6 +184,7 @@ class ActiController extends Controller
         return redirect('/Posts')->with('success', 'Post supprimé');    
     }
 
+    //Delete comments on posts
     public function deleteComment($id){
         $comment= Comment::find($id);
         $comment_id=$comment->post_id;
@@ -185,6 +192,7 @@ class ActiController extends Controller
         return redirect("/Posts/$comment_id")->with('success', 'Post supprimé');  
     }
 
+//Comment on posts
     public function comment(Request $request, $id_posts){
 
         $this->validate($request, [
@@ -199,7 +207,7 @@ class ActiController extends Controller
         $comment->save();
         return redirect("/Posts/$id_posts")->with('response', 'Comment Added Successfully');
     }
-
+//Like on posts
     public function like($id){
         $loggedin_user = Auth::user()->Id_user;
 
@@ -220,7 +228,7 @@ class ActiController extends Controller
             return redirect("/Posts/$id");
         }
     }
-
+//Sign up on posts
     public function inscript($id){
         $loggedin_user = Auth::user()->Id_user;
         $inscript_user = Signin::where(['user_id' => $loggedin_user, 'post_id' => $id])->first();
@@ -241,12 +249,12 @@ class ActiController extends Controller
     }
 }
 
-
+//List for user that are sign up on the posts
     public function list($id) {
         
         return view('posts.list')->with('id',$id);
     }
-
+//Insert the photos
     public function file(Request $request){
         $imagename=time().".".$request->file('photo')->extension();
 
@@ -256,16 +264,7 @@ class ActiController extends Controller
 
         return redirect("/Posts/$id");
     }
-
-    public function exportpdf($id){
-
-        $user = User::find($id);
-        
-        return $pdf = PDF::loadView('user.pdf',$user)->margin(20,0,0,20)->download();
-
-
-    }
-
+//File uploaded
     public function save($id)
     {
     request()->validate([
@@ -286,11 +285,4 @@ class ActiController extends Controller
         ->withSuccess('Great! Image has been successfully uploaded.');
     }
 }
-
-
-    function imprimir($id){
-        $pdf = \PDF::loadView('pdf');
-        return $pdf->download('primerpdf.pdf');
-    }
-
 }

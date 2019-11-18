@@ -5,7 +5,7 @@
 <title>Créer une activité</title>
 <link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
 
-
+<!------------------------------------------------Create a post-------------------------------------------------------------->
 @section('content')
 <a href="{{asset('/Posts')}}" class="btn btn-danger">Retour</a>
 @if(count($errors) > 0)

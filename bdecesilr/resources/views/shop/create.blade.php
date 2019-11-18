@@ -5,7 +5,7 @@
 <title>Créer un article</title>
 <link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
 
-
+<!------------------------------------------------Create an item-------------------------------------------------------------->
 @section('content')
 <a href="{{asset('/shop')}}" class="btn btn-danger">Retour</a>
 @if(count($errors) > 0)
@@ -57,13 +57,14 @@
                 foreach($cat as $cat){
                 echo '<option>'.$cat->Category_name.'</option>';
                 ?>
-    </select>
+ 
 
-        </div>
 
         <?php }
         ?>
-
+   </select>
+   
+        </div>
         <div class="form-group">
             {{Form::file('Product_image')}}
         </div>

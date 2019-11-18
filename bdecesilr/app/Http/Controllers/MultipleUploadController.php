@@ -10,7 +10,7 @@ class MultipleUploadController extends Controller
     {
      return view('multiple_file_upload');
     }
-
+//Upload images.
     function upload(Request $request)
     {
      $image_code = '';

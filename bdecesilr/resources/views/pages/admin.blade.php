@@ -7,7 +7,7 @@
 <div class="container-fluid"></div>
 
     <h1>Utilisateurs</h1>
-
+<!-----------------------------------------Administration of informations of all users-------------------------------------------->
     <table class="table table-striped">
 
         <thead class="thead-dark">
@@ -24,7 +24,6 @@
         </thead>
         
         <tbody>
-            
                 <?php
                 $user=DB::select('SELECT * FROM Users'); 
 
@@ -37,9 +36,11 @@
                         echo '<td style="vertical-align: middle;" class="text-center">'.$user->email.'</td>';
                         echo '<td style="vertical-align: middle;" class="text-center">'.$Nom_status.'</td>';
                         echo '<td style="vertical-align: middle;" class="text-center">'.$Nom_campus.'</td>';
-                        echo '<td style="vertical-align: middle;" class="text-center">
-                            <a href="/projetwebf/bdecesilr/public/admin/'.$user->Id_user.'/editU" class="btn btn-primary">Edit</a>
-                            </td>';
+                        echo '<td style="vertical-align: middle;" class="text-center">';
+                        ?>
+                        <a href="{{asset('admin/'.$user->Id_user.'/editU')}}" class="btn btn-primary">Edit</a>
+                        <?php 
+                        echo  '</td>';
                         echo '</tr>';
                     }
                 ?>

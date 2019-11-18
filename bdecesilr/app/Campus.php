@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+//Database campus
 class Campus extends Model
 {
     public function users() {

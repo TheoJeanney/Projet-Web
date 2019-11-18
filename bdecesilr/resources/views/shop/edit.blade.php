@@ -6,7 +6,7 @@
 <title>Modifier un article</title>
 <link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
 
-
+<!------------------------------------------------Edit an item-------------------------------------------------------------->
 @section('content')
 <a href="{{asset('/shop')}}" class="btn btn-danger float-left">Retour</a>
 <h1  class="row justify-content-center" >Modifier l'article</h1>

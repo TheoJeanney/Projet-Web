@@ -76,23 +76,7 @@ btnIn2.onclick = function() {
   modalCo.style.display="none";
 }
 
-/*var bodyMove = {
-    marginLeft : "250px";
-}*/
-
-/* Set the width of the sidebar to 250px and the left margin of the page content to 250px 
-function openNav() {
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-  $("body").css(bodyMove);
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft = "0";
-}
-*/
-
+//Show the first password
 function ShowPassA() {
   var x = document.getElementById("password");
   if (x.type === "password") {
@@ -101,7 +85,7 @@ function ShowPassA() {
     x.type = "password";
   }
 }
-
+//Show the second password
 function ShowPassB() {
   var x = document.getElementById("password-confirm");
   if (x.type === "password") {

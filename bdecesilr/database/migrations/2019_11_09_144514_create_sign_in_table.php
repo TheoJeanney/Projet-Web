@@ -14,7 +14,7 @@ class CreateSignInTable extends Migration
     public function up()
     {
         Schema::create('Sign_in', function (Blueprint $table) {
-            //Our information in the database
+            //Our information in the sign_in database
             $table->increments('id_signin');
             $table->integer('user_id')->unsigned();
             $table->integer('post_id')->unsigned();

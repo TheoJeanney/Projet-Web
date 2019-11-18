@@ -5,7 +5,7 @@
 <title>Modifier l'activité</title>
 <link rel="icon" type="image/png" href="{{asset('images/Logo_BDE.png')}}">
 
-
+<!------------------------------------------------Edit a post-------------------------------------------------------------->
 @section('content')
 <a href="{{asset('/Posts/'.$post->id_posts)}}" class="btn btn-danger">Retour</a>
 <h1  class="row justify-content-center" >Modifier l'activité</h1>

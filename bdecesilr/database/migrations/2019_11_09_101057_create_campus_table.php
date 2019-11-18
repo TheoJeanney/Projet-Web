@@ -18,7 +18,7 @@ class CreateCampusTable extends Migration
             $table->increments('Id_campus');
             $table->string('Campus_name',150);
         });
-
+//Insert the information of every campus
         DB::table('Campus')->insert([
             ['Campus_name' => 'Aix-en-Provence'], 
             ['Campus_name' => 'Angoulême'],

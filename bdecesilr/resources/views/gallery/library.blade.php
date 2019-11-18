@@ -6,7 +6,7 @@
 <br/><br/>
 <h1 class= text-danger>{{$post->title}}</h1>
 
-
+<!--Show all images of one event-->
         <div class="photo">  
 <?php $img = DB::SELECT('SELECT file_name FROM photos WHERE id_post = ?', [$post->id_posts]);
 
@@ -21,6 +21,7 @@
 } 
 ?>
         </div>    
+                <!--Part for the like-->
                 <p><a href='{{ url("/likeL/{$post->id_posts}") }}'> 
                 <span class="fa fa-thumbs-up"> Like({{$likeCtr}})</span>
                 </a></p>
@@ -39,6 +40,7 @@
                 <hr>
                         @endif
                 @endif
+                <!--Part for the comments-->
                 <h3>Commentaires</h3>  
                 @if(count($comments) > 0)
                         @foreach($comments->all() as $comment)
@@ -51,7 +53,7 @@
                                 <a href='{{ url("/deleteCommentL/{$comment->id_comments}") }}'> 
                                 <span class="btn btn-danger"> Supprimer</span>
                                 </a>
-                                 @endif
+                                @endif
                                 @endif
                                 @if(Auth::check())
                                         @if(auth()->user()->Id_status==3)

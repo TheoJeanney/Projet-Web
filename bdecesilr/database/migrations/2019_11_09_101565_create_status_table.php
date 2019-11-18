@@ -18,7 +18,7 @@ class CreateStatusTable extends Migration
             $table->increments('Id_status');
             $table->string('Status_name',100);
         });
-
+//Insert every status
         DB::table('Status')->insert([
             ['Status_name' => 'Etudiants'], 
             ['Status_name' => 'Membre du BDE'],

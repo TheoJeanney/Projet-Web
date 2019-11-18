@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <title>BDE CESI La Rochelle - Activité</title>
-
+<!------------------------------------------------List all the posts-------------------------------------------------------------->
 @section('mainpage')
 <div class="activity">
     <h1>Les activités</h1>
@@ -26,7 +26,7 @@
 <hr>
         @endforeach
     @else
-        <p>Pas d'activités</p>
+        <p>Pas d'activité</p>
     @endif
 
 </div>

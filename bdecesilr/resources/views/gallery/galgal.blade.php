@@ -6,6 +6,7 @@
 <h1>La galerie photo</h1>
 </div>
 <hr>
+<!--List of all gallery of all events-->
 <?php $posts = DB::select('SELECT * FROM posts'); ?>
     @if(count($posts) >= 1)
         @foreach($posts as $post)
@@ -21,7 +22,7 @@
 <hr>
         @endforeach
     @else
-        <p>Pas d'activités</p>
+        <p>Pas d'activité</p>
     @endif
 </div>
 @endsection

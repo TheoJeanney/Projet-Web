@@ -13,6 +13,7 @@ class CreateCommentsLibraryTable extends Migration
      */
     public function up()
     {
+        //Creation of the comment of the librabry table
         Schema::create('commentLibrary', function (Blueprint $table) {
             $table->increments('id_comments');
             $table->text('comment');

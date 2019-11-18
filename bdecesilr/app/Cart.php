@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+//Cart but not on the database, it will only keep the items for one connexion.
 class Cart
 {
     public $items = null;

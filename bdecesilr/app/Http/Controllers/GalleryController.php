@@ -47,6 +47,7 @@ class GalleryController extends Controller
      * @param int $id 
      * @return \Illuminate\Http\Response
     */
+    //display for the gallery , library.
     public function show($id)
     {
 
@@ -84,6 +85,7 @@ class GalleryController extends Controller
 
     }
 
+    //Remove a comment on the gallery page 
     public function deleteComment($id){
         $comment= Commentlibrary::find($id);
         $comment_id=$comment->post_id;
@@ -91,6 +93,7 @@ class GalleryController extends Controller
         return redirect("/library/$comment_id")->with('success', 'Post supprimé');  
     }
 
+    //Put a comment on the gallery page
     public function comment(Request $request, $id_posts){
 
         $this->validate($request, [
@@ -105,7 +108,7 @@ class GalleryController extends Controller
         $comment->save();
         return redirect("/library/$id_posts")->with('response', 'Comment Added Successfully');
     }
-
+//Add a like to the gallery
     public function like($id){
         $loggedin_user = Auth::user()->Id_user;
 

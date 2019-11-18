@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-<title>send e-mail</title>
+<title>Envoyer un email</title>
 
 @section('content')
 
@@ -17,7 +17,7 @@
     </style>
 
     <div class="container box">
-
+<!-------------------------Count the errors -------------------------->
         @if(count($errors)>0)
             <div class="alert alert-danger">
                 <button type="button" class="close" data-dismiss="alert">x</button>
@@ -31,6 +31,7 @@
             </div>
         @endif
 
+<!---------------Return success message when email sent-------------->
         @if($message = Session::get('success'))
             <div class="alert alert-success alert-block">
                 <button type="button" class="close" data-dismiss="alert">x</button>
@@ -38,18 +39,19 @@
             </div>
         @endif
 
+<!---------------Contact form for contact.blade.php------------------>
         <form method="post" action="{{ url('sendemail/send') }}">
             {{ csrf_field() }}
             <div class="form-group">
-                <label>Enter Your Name</label>
+                <label>Entrez votre nom</label>
                 <input type="text" name="name" class="form-control" />
             </div>
             <div class="form-group">
-                <label>Enter Your Email</label>
+                <label>Entrez votre email</label>
                 <input type="text" name="email" class="form-control" />
             </div>
             <div class="form-group">
-                <label>Enter Your Message</label>
+                <label>Entre votre message</label>
                 <textarea name="message" class="form-control"></textarea>
             </div>
             <div class="form-group">

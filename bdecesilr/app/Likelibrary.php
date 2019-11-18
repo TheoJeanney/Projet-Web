@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+//Like library on database
 class Likelibrary extends Model
 {
     // Table Name

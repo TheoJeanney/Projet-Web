@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <title>BDE CESI La Rochelle - Boutique</title>
-
+<!---------------------------------------------Show informations of the item----------------------------------------------------->
 @section('content')
 <a href="{{asset('/shop')}}" class="btn btn-danger float-left">Retour</a>
 <br/><br/>

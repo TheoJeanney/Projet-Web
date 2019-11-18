@@ -23,6 +23,7 @@ class ShopController extends Controller
      * 
      * @return \Illuminate\Http\Response
     */
+    //return the create page for the shop
     public function create()
     {
         return view('shop.create');
@@ -31,6 +32,8 @@ class ShopController extends Controller
      * @param \Illuminate\Http\Request $request 
      * @return \Illuminate\Http\Response
     */
+
+    //Store all the informations, for the database
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -75,6 +78,7 @@ class ShopController extends Controller
      * @param int $id 
      * @return \Illuminate\Http\Response
     */
+    //Show the information of one item
     public function show($id)
     {
         $shop=Shop::find($id);
@@ -85,6 +89,7 @@ class ShopController extends Controller
      * @param int $id 
      * @return \Illuminate\Http\Response
     */
+    //Page for edit an item
     public function edit($id)
     {
         $shop = Shop::find($id);

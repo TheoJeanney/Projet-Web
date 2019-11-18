@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <title>BDE CESI La Rochelle - Activité</title>
-
+<!---------------------------------------------------Show a post--------------------------------------------------------------->
 @section('mainpage')
 
 <a href="{{asset('/Posts')}}" class="btn btn-danger float-left">Retour</a>
